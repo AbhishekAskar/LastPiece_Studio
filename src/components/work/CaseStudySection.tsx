@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 interface CaseStudySectionProps {
@@ -18,7 +18,7 @@ export function CaseStudySection({ title, children, variant = "white", className
     return (
         <section className={cn("px-6 max-w-7xl mx-auto py-16", backgrounds[variant], className)}>
             {title && (
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -27,16 +27,16 @@ export function CaseStudySection({ title, children, variant = "white", className
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{title}</h2>
                     <div className="h-1 w-20 bg-brand-purple rounded-full"></div>
-                </motion.div>
+                </m.div>
             )}
-            <motion.div
+            <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
             >
                 {children}
-            </motion.div>
+            </m.div>
         </section>
     )
 }

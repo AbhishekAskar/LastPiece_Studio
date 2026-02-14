@@ -1,7 +1,9 @@
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { Link } from "react-router-dom"
+import { MotionWrapper } from "@/components/ui/MotionWrapper"
+import { VARIANTS_HERO, VARIANTS_CONTAINER, VARIANTS_CARD } from "@/lib/animations"
 
 export function Work() {
     const projects = [
@@ -44,11 +46,11 @@ export function Work() {
         <>
             {/* Hero Section */}
             <section className="relative flex items-center justify-center overflow-hidden gradient-mesh px-4 md:px-6 pt-32 pb-16 md:pt-48 md:pb-20 min-h-[60vh] md:min-h-[70vh]">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="max-w-5xl text-center mx-auto relative z-10"
+                <m.div
+                    variants={VARIANTS_HERO}
+                    initial="hidden"
+                    animate="visible"
+                    className="max-w-5xl text-center mx-auto relative z-10 will-change-transform"
                 >
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 mb-6 md:mb-8 leading-tight">
                         Explorations in <span className="text-brand-purple">digital clarity.</span>
@@ -56,28 +58,33 @@ export function Work() {
                     <p className="text-lg md:text-2xl text-slate-600 leading-relaxed font-light max-w-4xl mx-auto px-2">
                         A collection of self-initiated concepts that demonstrate our approach to product design, branding, and user experience.
                     </p>
-                </motion.div>
+                </m.div>
 
                 {/* Background Blobs */}
-                <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-blue/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60" />
-                <div className="absolute bottom-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-purple/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60" />
+                <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-blue/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60 will-change-transform" />
+                <div className="absolute bottom-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-purple/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60 will-change-transform" />
             </section>
 
             <div className="pb-16">
                 {/* Project Grid */}
                 <section className="px-4 md:px-6 max-w-7xl mx-auto py-8">
-                    <div className="grid grid-cols-1 gap-8 md:gap-12">
+                    <m.div
+                        variants={VARIANTS_CONTAINER}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="grid grid-cols-1 gap-8 md:gap-12"
+                    >
                         {projects.map((project, index) => (
                             <Link to={project.link} key={index} className="group block">
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    className="bg-white rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 flex flex-col md:flex-row h-auto md:h-[400px]"
+                                <m.div
+                                    variants={VARIANTS_CARD}
+                                    whileHover="hover"
+                                    className="bg-white rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 flex flex-col md:flex-row h-auto md:h-[400px] transform-gpu"
                                 >
                                     {/* Image / Gradient Side */}
-                                    <div className={`w-full md:w-1/2 bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-700 min-h-[200px]`}>
+                                    <div className={`w-full md:w-1/2 bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} relative overflow-hidden h-[200px] md:h-auto`}>
+                                        <div className={`absolute inset-0 bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo}`}></div>
                                         <div className="absolute inset-0 bg-grid-white/10"></div>
                                         <div className="absolute inset-0 flex items-center justify-center">
                                             <span className="text-white/20 text-3xl md:text-4xl font-black tracking-[0.2em] uppercase">{project.bgTitle}</span>
@@ -106,19 +113,15 @@ export function Work() {
                                             View Concept <ArrowRight size={18} className="md:w-5 md:h-5" />
                                         </div>
                                     </div>
-                                </motion.div>
+                                </m.div>
                             </Link>
                         ))}
-                    </div>
+                    </m.div>
                 </section>
 
                 {/* Philosophy Strip */}
                 <section className="px-4 md:px-6 max-w-7xl mx-auto py-12 md:py-16 my-8 md:my-12">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                    <MotionWrapper
                         className="bg-slate-900 rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 text-center relative overflow-hidden"
                     >
                         <div className="absolute top-0 right-0 w-[300px] md:w-[400px] h-[300px] md:h-[400px] bg-brand-purple/20 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
@@ -127,17 +130,12 @@ export function Work() {
                                 We build these concepts to keep our skills sharp and our thinking clear.
                             </p>
                         </div>
-                    </motion.div>
+                    </MotionWrapper>
                 </section>
 
                 {/* CTA */}
                 <section className="px-6 max-w-3xl mx-auto py-24 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
+                    <MotionWrapper>
                         <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
                             Have a similar vision?
                         </h2>
@@ -149,7 +147,7 @@ export function Work() {
                                 Start a Project <ArrowRight className="ml-2" />
                             </Button>
                         </Link>
-                    </motion.div>
+                    </MotionWrapper>
                 </section>
             </div>
         </>

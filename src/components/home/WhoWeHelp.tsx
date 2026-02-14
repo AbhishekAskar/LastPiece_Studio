@@ -1,5 +1,7 @@
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Rocket, Building2, TrendingUp } from "lucide-react"
+import { MotionWrapper } from "@/components/ui/MotionWrapper"
+import { VARIANTS_CONTAINER, VARIANTS_CARD } from "@/lib/animations"
 
 export function WhoWeHelp() {
     const audiences = [
@@ -29,38 +31,43 @@ export function WhoWeHelp() {
     return (
         <section className="py-16 md:py-24 px-6 bg-slate-50">
             <div className="max-w-7xl mx-auto">
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <MotionWrapper className="text-center max-w-3xl mx-auto mb-16">
                     <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
                         Who is this for?
                     </h2>
                     <p className="text-xl text-slate-600 leading-relaxed">
                         We work best with ambitious teams who value design as a business lever, not just decoration.
                     </p>
-                </div>
+                </MotionWrapper>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <m.div
+                    variants={VARIANTS_CONTAINER}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                >
                     {audiences.map((item, index) => (
-                        <motion.div
+                        <m.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            whileHover={{ y: -8 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-brand-purple/20 transition-all duration-300 group"
+                            variants={VARIANTS_CARD}
+                            whileHover="hover"
+                            className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm transition-all duration-300 group"
                         >
-                            <div className={`w-14 h-14 ${item.bg} ${item.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                                <item.icon size={28} />
+                            <div className="h-full">
+                                <div className={`w-14 h-14 ${item.bg} ${item.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                                    <item.icon size={28} />
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">
+                                    {item.title}
+                                </h3>
+                                <p className="text-slate-600 leading-relaxed">
+                                    {item.desc}
+                                </p>
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">
-                                {item.title}
-                            </h3>
-                            <p className="text-slate-600 leading-relaxed">
-                                {item.desc}
-                            </p>
-                        </motion.div>
+                        </m.div>
                     ))}
-                </div>
+                </m.div>
             </div>
         </section>
     )

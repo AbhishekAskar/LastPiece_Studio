@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Sparkles, ShoppingBag, ArrowLeft, Heart } from "lucide-react"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/Button"
@@ -18,7 +18,7 @@ export function AuraLifestyle() {
     return (
         <div className="bg-slate-50 min-h-screen pt-32">
             {/* Floating Back Button */}
-            <motion.div
+            <m.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: isScrolled ? 1 : 0, x: isScrolled ? 0 : -20, pointerEvents: isScrolled ? 'auto' : 'none' }}
                 transition={{ duration: 0.3 }}
@@ -29,7 +29,7 @@ export function AuraLifestyle() {
                     <span className="hidden md:inline">Back to Work</span>
                     <span className="md:hidden">Back</span>
                 </Link>
-            </motion.div>
+            </m.div>
 
             {/* Project Hero */}
             <section className="pb-20 px-6">
@@ -37,7 +37,7 @@ export function AuraLifestyle() {
                     <Link to="/work" className="inline-flex items-center gap-2 text-slate-500 hover:text-brand-purple mb-8 transition-colors group">
                         <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" /> Back to Work
                     </Link>
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
@@ -51,13 +51,13 @@ export function AuraLifestyle() {
                         <p className="text-xl md:text-2xl text-slate-600 font-light max-w-3xl leading-relaxed">
                             A premium lifestyle brand website concept designed to create emotional connection and elevate perceived value through digital storytelling.
                         </p>
-                    </motion.div>
+                    </m.div>
                 </div>
             </section>
 
             {/* Visual Showcase */}
             <section className="px-6 pb-20">
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
@@ -69,7 +69,7 @@ export function AuraLifestyle() {
                             LIFESTYLE
                         </span>
                     </div>
-                </motion.div>
+                </m.div>
             </section>
 
             {/* Concept Details - Grid Layout */}

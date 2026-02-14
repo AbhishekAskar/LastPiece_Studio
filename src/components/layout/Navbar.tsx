@@ -2,8 +2,9 @@ import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/Button"
 import { Puzzle, Menu, X } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { Link, useLocation } from "react-router-dom"
+import { VARIANTS_BUTTON } from "@/lib/animations"
 
 export function Navbar() {
     const [scrolled, setScrolled] = useState(false)
@@ -57,9 +58,13 @@ export function Navbar() {
                         className="flex items-center gap-2 md:gap-3 group"
                         onClick={scrollToTop}
                     >
-                        <div className="bg-brand-purple text-white rounded-xl flex items-center justify-center w-8 h-8 md:w-10 md:h-10 shadow-lg shadow-brand-purple/20 group-hover:scale-105 transition-transform duration-300">
+                        <m.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-brand-purple text-white rounded-xl flex items-center justify-center w-8 h-8 md:w-10 md:h-10 shadow-lg shadow-brand-purple/20 transition-transform duration-300"
+                        >
                             <Puzzle strokeWidth={2.5} size={20} className="text-white -rotate-12 md:w-6 md:h-6" />
-                        </div>
+                        </m.div>
                         <div className="flex flex-col">
                             <h1 className="text-base md:text-lg font-black tracking-tight text-slate-900 leading-none group-hover:text-brand-purple transition-colors">
                                 LastPiece <span className="text-brand-purple">Studio</span>
@@ -83,7 +88,9 @@ export function Navbar() {
                                         : "text-slate-600 hover:text-brand-purple"
                                 )}
                             >
-                                {link.name}
+                                <m.span whileHover={{ y: -1 }} className="block">
+                                    {link.name}
+                                </m.span>
                             </Link>
                         ))}
                     </nav>
@@ -91,9 +98,11 @@ export function Navbar() {
                     {/* CTA & Mobile Toggle */}
                     <div className="flex items-center gap-3 md:gap-4">
                         <Link to="/contact" className="hidden sm:block">
-                            <Button size="sm" className="h-9 md:h-10 px-4 md:px-6 rounded-full text-xs md:text-sm font-semibold">
-                                Start a Project
-                            </Button>
+                            <m.div variants={VARIANTS_BUTTON} initial="initial" whileHover="hover" whileTap="tap">
+                                <Button size="sm" className="h-9 md:h-10 px-4 md:px-6 rounded-full text-xs md:text-sm font-semibold pointer-events-none">
+                                    Start a Project
+                                </Button>
+                            </m.div>
                         </Link>
                         <button
                             className="lg:hidden p-2 text-slate-800 hover:bg-slate-100 rounded-full transition-colors"
@@ -109,7 +118,7 @@ export function Navbar() {
             {/* Mobile Menu Overlay */}
             <AnimatePresence>
                 {mobileMenuOpen && (
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
@@ -138,7 +147,7 @@ export function Navbar() {
                                 </Button>
                             </Link>
                         </nav>
-                    </motion.div>
+                    </m.div>
                 )}
             </AnimatePresence>
         </>

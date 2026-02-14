@@ -1,6 +1,8 @@
 import { Puzzle, Twitter, Linkedin, Dribbble, Instagram } from "lucide-react"
 import { Link } from "react-router-dom"
 import { Button } from "../ui/Button"
+import { m } from "framer-motion"
+import { VARIANTS_BUTTON } from "@/lib/animations"
 
 export function Footer() {
     const links = {
@@ -43,14 +45,15 @@ export function Footer() {
                         </p>
                         <div className="flex gap-4">
                             {links.socials.map((social, i) => (
-                                <a
+                                <m.a
                                     key={i}
                                     href={social.href}
-                                    className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-slate-400 hover:bg-brand-purple hover:text-white transition-all hover:-translate-y-1"
+                                    whileHover={{ y: -4, backgroundColor: "#8B5CF6", color: "#fff" }}
+                                    className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-slate-400 transition-colors"
                                     aria-label={social.label}
                                 >
                                     <social.icon size={18} />
-                                </a>
+                                </m.a>
                             ))}
                         </div>
                     </div>
@@ -69,6 +72,7 @@ export function Footer() {
                         </ul>
                     </div>
 
+                    {/* ... (rest of the footer links) */}
                     <div className="lg:col-span-2 sm:col-span-6">
                         <h3 className="text-white font-bold mb-6">Company</h3>
                         <ul className="space-y-4">
@@ -89,9 +93,11 @@ export function Footer() {
                             Let&apos;s build your first meaningful digital experience.
                         </p>
                         <Link to="/contact">
-                            <Button className="w-full bg-white text-slate-900 hover:bg-brand-purple hover:text-white border-0">
-                                Book Strategy Call
-                            </Button>
+                            <m.div variants={VARIANTS_BUTTON} initial="initial" whileHover="hover" whileTap="tap">
+                                <Button className="w-full bg-white text-slate-900 hover:bg-brand-purple hover:text-white border-0 pointer-events-none">
+                                    Book Strategy Call
+                                </Button>
+                            </m.div>
                         </Link>
                     </div>
                 </div>

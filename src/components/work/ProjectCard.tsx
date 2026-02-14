@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { ArrowRight, ArrowLeft } from "lucide-react"
 import { Link } from "react-router-dom"
 
@@ -14,7 +14,7 @@ interface ProjectCardProps {
 export function ProjectCard({ title, category, summary, gradientFrom, gradientTo, link }: ProjectCardProps) {
     return (
         <Link to={link}>
-            <motion.div
+            <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -50,7 +50,7 @@ export function ProjectCard({ title, category, summary, gradientFrom, gradientTo
                         </p>
                     </div>
                 </div>
-            </motion.div>
+            </m.div>
         </Link>
     )
 }
@@ -62,7 +62,7 @@ interface BackButtonProps {
 export function BackButton({ to = "/work" }: BackButtonProps) {
     return (
         <Link to={to}>
-            <motion.button
+            <m.button
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
@@ -70,7 +70,7 @@ export function BackButton({ to = "/work" }: BackButtonProps) {
             >
                 <ArrowLeft size={20} />
                 Back to Work
-            </motion.button>
+            </m.button>
         </Link>
     )
 }

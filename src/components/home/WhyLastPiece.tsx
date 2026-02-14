@@ -1,5 +1,7 @@
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Check, Puzzle } from "lucide-react"
+import { MotionWrapper } from "@/components/ui/MotionWrapper"
+import { VARIANTS_CONTAINER, VARIANTS_SECTION, VARIANTS_CARD } from "@/lib/animations"
 
 export function WhyLastPiece() {
     const points = [
@@ -12,7 +14,7 @@ export function WhyLastPiece() {
     return (
         <section className="py-16 md:py-24 px-6 relative overflow-hidden">
             {/* Background pattern */}
-            <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0 opacity-5 pointer-events-none">
                 <div className="absolute top-10 left-10">
                     <Puzzle className="w-32 h-32 text-brand-purple" />
                 </div>
@@ -24,17 +26,20 @@ export function WhyLastPiece() {
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Left side - Text content */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                    <MotionWrapper
+                        className="space-y-8"
                     >
                         <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 leading-tight">
                             Why work with us?
                         </h2>
 
-                        <div className="space-y-4">
+                        <m.div
+                            variants={VARIANTS_CONTAINER}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            className="space-y-4"
+                        >
                             {points.map((point, index) => {
                                 const colors = [
                                     "bg-purple-100 text-purple-600",
@@ -45,12 +50,9 @@ export function WhyLastPiece() {
                                 const colorClass = colors[index % colors.length]
 
                                 return (
-                                    <motion.div
+                                    <m.div
                                         key={index}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                                        variants={VARIANTS_SECTION}
                                         className="flex items-center gap-4"
                                     >
                                         <div className={`w-8 h-8 rounded-full ${colorClass} flex items-center justify-center flex-shrink-0`}>
@@ -59,18 +61,18 @@ export function WhyLastPiece() {
                                         <span className="text-xl font-medium text-slate-800">
                                             {point}
                                         </span>
-                                    </motion.div>
+                                    </m.div>
                                 )
                             })}
-                        </div>
-                    </motion.div>
+                        </m.div>
+                    </MotionWrapper>
 
                     {/* Right side - Visual card */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                    <MotionWrapper
+                        delay={0.2}
+                        variants={VARIANTS_CARD}
+                        whileHover="hover"
+                        className="transform-gpu"
                     >
                         <div className="bg-gradient-to-br from-pastel-purple/20 via-pastel-blue/20 to-pastel-pink/20 p-12 rounded-3xl border border-white/50 shadow-lg">
                             <div className="bg-white/60 backdrop-blur-sm p-8 rounded-2xl">
@@ -93,7 +95,7 @@ export function WhyLastPiece() {
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </MotionWrapper>
                 </div>
             </div>
         </section>

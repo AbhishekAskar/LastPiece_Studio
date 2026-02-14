@@ -1,18 +1,20 @@
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { ArrowRight, Check, X, Target, Users, Zap, Heart, Eye } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { Link } from "react-router-dom"
+import { MotionWrapper } from "@/components/ui/MotionWrapper"
+import { VARIANTS_HERO, VARIANTS_CONTAINER, VARIANTS_CARD } from "@/lib/animations"
 
 export function Studio() {
     return (
         <>
             {/* 1) HERO */}
             <section className="relative flex items-center justify-center overflow-hidden gradient-mesh px-4 md:px-6 pt-32 pb-16 md:pt-48 md:pb-24 min-h-[60vh] md:min-h-[70vh]">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="max-w-5xl text-center mx-auto relative z-10"
+                <m.div
+                    variants={VARIANTS_HERO}
+                    initial="hidden"
+                    animate="visible"
+                    className="max-w-5xl text-center mx-auto relative z-10 will-change-transform"
                 >
                     <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-slate-900 mb-6 md:mb-8 leading-[1.1] tracking-tight">
                         We build <span className="text-brand-purple">what was missing.</span>
@@ -25,17 +27,19 @@ export function Studio() {
                             Start a Project <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
                     </Link>
-                </motion.div>
+                </m.div>
 
                 {/* Background Blobs */}
-                <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-blue/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60" />
-                <div className="absolute bottom-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-purple/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60" />
+                <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-blue/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60 will-change-transform" />
+                <div className="absolute bottom-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-purple/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60 will-change-transform" />
             </section>
 
             <div className="pb-16">
                 {/* 2) WHY LASTPIECE EXISTS */}
                 <section className="px-4 md:px-6 max-w-5xl mx-auto pb-16 md:pb-24">
-                    <div className="bg-brand-purple/5 rounded-3xl md:rounded-[2.5rem] p-8 md:p-16 border border-slate-100">
+                    <MotionWrapper
+                        className="bg-brand-purple/5 rounded-3xl md:rounded-[2.5rem] p-8 md:p-16 border border-slate-100"
+                    >
                         <div className="max-w-3xl mx-auto space-y-8 md:space-y-12">
                             {/* Problem Section */}
                             <div className="space-y-4 md:space-y-6">
@@ -63,37 +67,54 @@ export function Studio() {
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </MotionWrapper>
                 </section>
 
                 {/* 3) OUR PHILOSOPHY */}
                 <section className="px-4 md:px-6 max-w-7xl mx-auto pb-16 md:pb-24">
-                    <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
+                    <MotionWrapper
+                        className="text-center max-w-3xl mx-auto mb-10 md:mb-16"
+                    >
                         <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">How we think</h2>
                         <p className="text-base md:text-lg text-slate-600">Principles that guide every pixel we ship.</p>
-                    </div>
+                    </MotionWrapper>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                    <m.div
+                        variants={VARIANTS_CONTAINER}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
+                    >
                         {[
                             { icon: Target, title: "Intentionality", desc: "No filler. Everything has a purpose.", color: "bg-purple-50/60 border-purple-100" },
                             { icon: Eye, title: "Clarity", desc: "We remove noise to amplify the message.", color: "bg-blue-50/60 border-blue-100" },
                             { icon: Zap, title: "Performance", desc: "Fast, accessible, and conversion-ready.", color: "bg-amber-50/60 border-amber-100" },
                             { icon: Users, title: "Human", desc: "Digital products for real people.", color: "bg-emerald-50/60 border-emerald-100" }
                         ].map((item, index) => (
-                            <div key={index} className={`${item.color} p-6 md:p-8 rounded-2xl md:rounded-3xl border hover:shadow-lg transition-all duration-300 group`}>
-                                <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl flex items-center justify-center mb-4 md:mb-6 text-slate-900 shadow-sm">
-                                    <item.icon size={20} className="md:w-6 md:h-6" />
+                            <m.div
+                                key={index}
+                                variants={VARIANTS_CARD}
+                                whileHover="hover"
+                                className={`${item.color} p-6 md:p-8 rounded-2xl md:rounded-3xl border hover:shadow-lg transition-all duration-300 group`}
+                            >
+                                <div>
+                                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl flex items-center justify-center mb-4 md:mb-6 text-slate-900 shadow-sm">
+                                        <item.icon size={20} className="md:w-6 md:h-6" />
+                                    </div>
+                                    <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3">{item.title}</h3>
+                                    <p className="text-sm md:text-base text-slate-600 leading-relaxed">{item.desc}</p>
                                 </div>
-                                <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3">{item.title}</h3>
-                                <p className="text-sm md:text-base text-slate-600 leading-relaxed">{item.desc}</p>
-                            </div>
+                            </m.div>
                         ))}
-                    </div>
+                    </m.div>
                 </section>
 
                 {/* 4) HOW WORKING TOGETHER FEELS */}
                 <section className="px-4 md:px-6 max-w-6xl mx-auto pb-16 md:pb-24">
-                    <div className="bg-[#0B0F19] text-white rounded-[2rem] md:rounded-[3rem] p-8 md:p-20 relative overflow-hidden">
+                    <MotionWrapper
+                        className="bg-[#0B0F19] text-white rounded-[2rem] md:rounded-[3rem] p-8 md:p-20 relative overflow-hidden"
+                    >
                         {/* Background decoration */}
                         <div className="absolute top-0 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-brand-purple/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
 
@@ -121,55 +142,70 @@ export function Studio() {
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    </MotionWrapper>
                 </section>
 
                 {/* 5) VALUES */}
                 <section className="px-4 md:px-6 max-w-7xl mx-auto pb-16 md:pb-24">
-                    <div className="mb-8 md:mb-12 text-center md:text-left">
+                    <MotionWrapper className="mb-8 md:mb-12 text-center md:text-left">
                         <h2 className="text-2xl md:text-3xl font-black text-slate-900">Values that drive results</h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                    </MotionWrapper>
+                    <m.div
+                        variants={VARIANTS_CONTAINER}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
+                    >
                         {[
                             { icon: Target, title: "Focus", desc: "We do fewer things, better.", color: "bg-purple-50/60 border-purple-100" },
                             { icon: Users, title: "Empathy", desc: "Understanding the user is job one.", color: "bg-pink-50/60 border-pink-100" },
                             { icon: Zap, title: "Speed", desc: "Momentum is a key feature.", color: "bg-blue-50/60 border-blue-100" },
                             { icon: Heart, title: "Craft", desc: "Details matter. A lot.", color: "bg-rose-50/60 border-rose-100" }
                         ].map((value, index) => (
-                            <div key={index} className={`border ${value.color} p-6 md:p-8 rounded-2xl h-full hover:shadow-md transition-all`}>
+                            <m.div
+                                key={index}
+                                variants={VARIANTS_CARD}
+                                whileHover="hover"
+                                className={`border ${value.color} p-6 md:p-8 rounded-2xl h-full hover:shadow-md transition-all`}
+                            >
                                 <value.icon className="w-6 h-6 md:w-8 md:h-8 text-brand-purple mb-3 md:mb-4" />
                                 <h3 className="font-bold text-base md:text-lg text-slate-900 mb-2">{value.title}</h3>
                                 <p className="text-sm text-slate-600 leading-relaxed">{value.desc}</p>
-                            </div>
+                            </m.div>
                         ))}
-                    </div>
+                    </m.div>
                 </section>
 
                 {/* 6) BUILT FOR SPEED & QUALITY (Credibility) */}
                 <section className="px-4 md:px-6 max-w-4xl mx-auto pb-16 md:pb-24 text-center">
-                    <div className="inline-block px-4 py-1.5 md:px-6 md:py-2 bg-purple-50 rounded-full text-brand-purple font-bold text-sm md:text-base mb-6 md:mb-8">
-                        Why choose us?
-                    </div>
-                    <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 md:mb-12">Built for speed & quality.</h2>
-                    <div className="grid md:grid-cols-2 gap-6 md:gap-8 text-left">
-                        <div className="p-6 md:p-8 bg-blue-50/60 border border-blue-100 rounded-3xl hover:shadow-md transition-all">
-                            <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3 md:mb-4">Small Team Advantage</h3>
-                            <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-                                No bureaucracy. No game of telephone. You speak directly to the people building your product.
-                            </p>
+                    <MotionWrapper>
+                        <div className="inline-block px-4 py-1.5 md:px-6 md:py-2 bg-purple-50 rounded-full text-brand-purple font-bold text-sm md:text-base mb-6 md:mb-8">
+                            Why choose us?
                         </div>
-                        <div className="p-6 md:p-8 bg-purple-50/60 border border-purple-100 rounded-3xl hover:shadow-md transition-all">
-                            <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3 md:mb-4">Systems Thinking</h3>
-                            <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-                                We don't just design pages; we build scalable design systems that grow with your company.
-                            </p>
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 md:mb-12">Built for speed & quality.</h2>
+                        <div className="grid md:grid-cols-2 gap-6 md:gap-8 text-left">
+                            <div className="p-6 md:p-8 bg-blue-50/60 border border-blue-100 rounded-3xl hover:shadow-md transition-all">
+                                <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3 md:mb-4">Small Team Advantage</h3>
+                                <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+                                    No bureaucracy. No game of telephone. You speak directly to the people building your product.
+                                </p>
+                            </div>
+                            <div className="p-6 md:p-8 bg-purple-50/60 border border-purple-100 rounded-3xl hover:shadow-md transition-all">
+                                <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3 md:mb-4">Systems Thinking</h3>
+                                <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+                                    We don't just design pages; we build scalable design systems that grow with your company.
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </MotionWrapper>
                 </section>
 
                 {/* 7) DIFFERENCE (Table) */}
                 <section className="px-4 md:px-6 max-w-5xl mx-auto pb-16 md:pb-24">
-                    <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm">
+                    <MotionWrapper
+                        className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm"
+                    >
                         <div className="overflow-x-auto">
                             <div className="min-w-[600px]">
                                 <div className="grid grid-cols-4 bg-gradient-to-br from-purple-50 to-pink-50 p-6 border-b border-slate-200 font-bold text-sm md:text-base text-slate-900">
@@ -217,17 +253,12 @@ export function Studio() {
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    </MotionWrapper>
                 </section>
 
                 {/* 8) FINAL CTA */}
                 <section className="px-6 max-w-3xl mx-auto pb-24 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
+                    <MotionWrapper>
                         <h2 className="text-3xl md:text-6xl font-black text-slate-900 mb-6 md:mb-8 leading-tight">
                             Let's build something <span className="text-brand-purple">meaningful.</span>
                         </h2>
@@ -239,7 +270,7 @@ export function Studio() {
                                 Start your project <ArrowRight className="ml-2" />
                             </Button>
                         </Link>
-                    </motion.div>
+                    </MotionWrapper>
                 </section>
             </div>
         </>

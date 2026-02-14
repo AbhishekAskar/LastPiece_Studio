@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Send, Image as ImageIcon, CheckCircle2, AlertCircle } from "lucide-react"
 import { useState } from "react"
 
@@ -75,7 +75,7 @@ export function Contact() {
     return (
         <section id="contact" className="section-padding px-4 md:px-6 bg-[#fff9f2] relative overflow-hidden">
             <div className="mx-auto max-w-xl relative z-10">
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -93,9 +93,9 @@ export function Contact() {
                     <div className="absolute -top-10 -right-20 opacity-10 hidden sm:block">
                         <ImageIcon className="w-24 h-24 transform rotate-12 text-slate-400 drop-shadow-2xl" />
                     </div>
-                </motion.div>
+                </m.div>
 
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -207,7 +207,7 @@ export function Contact() {
 
                         {/* Success Message */}
                         {submitStatus === "success" && (
-                            <motion.div
+                            <m.div
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 flex items-center gap-3"
@@ -216,12 +216,12 @@ export function Contact() {
                                 <p className="text-emerald-800 text-sm font-medium">
                                     Thank you! Your inquiry has been sent successfully. We'll get back to you soon.
                                 </p>
-                            </motion.div>
+                            </m.div>
                         )}
 
                         {/* Error Message */}
                         {submitStatus === "error" && (
-                            <motion.div
+                            <m.div
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3"
@@ -230,7 +230,7 @@ export function Contact() {
                                 <p className="text-red-800 text-sm font-medium">
                                     Oops! Something went wrong. Please check your information and try again.
                                 </p>
-                            </motion.div>
+                            </m.div>
                         )}
 
                         <button
@@ -260,7 +260,7 @@ export function Contact() {
                             </a>
                         </p>
                     </form>
-                </motion.div>
+                </m.div>
             </div>
         </section>
     )

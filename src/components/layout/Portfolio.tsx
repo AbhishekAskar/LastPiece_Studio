@@ -1,59 +1,45 @@
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/Button"
-
-const projects = [
-    {
-        title: "Nexus SaaS",
-        category: "Dashboard & UI System Concept",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDCyjEy1m8ijpARwTCqNHF20d7oduU6_vDGl6JJ5qmwZRhRmOzHf1njfAuxULi0sHVtmJl2sc071iSS-Wybs7Kis5C-7UV6uflwruYCquyzyBCFDYhbUg031e1sHaBGd9N4MYG93RUcDzvovvBNZkOz7BbtiK448dFWLudXKduONzULoGwekF71QZVCatXhj2yaBGsos0levVdnaYR2VP3rtSk1qqjU_gofp4GTUTm_2K1DYfUnsn0Mmbp-PwlWUa2fvYUtTfYuG88",
-    },
-    {
-        title: "Venture Flow",
-        category: "Startup Landing Page Design",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB2n1IYlYuvKGxBkXdbv2f4jIYzy0Cy372umij3OZcdmoTiQrpImVHqPh3Ku1QZaGZ7LI9MHPziiAk0tbidFUYIp3DLx_J-EN-YNE1UVSaproRO8muC-M0sRtZfbFgN6umBmCDoeWScmOH2DBoS6uNKQljWRxn8E9XP5qxX3ym1MDuj0CfoALz6eNKMFo19k6-kUs-94LkJlZ7LBmMohN1gED17pMDsnLX3ZZGZjFArVVCV0VKAmcQdQK65Ur5KFvUfoyIlt0aHKkY",
-    },
-    {
-        title: "Aura Lifestyle",
-        category: "Brand Identity & Digital Shop",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA719QNw8Dv2glCA_G3doheDa1wArqmOyKQc-_yNFkLYDK6UcyE_sX0MDnFYliudwpN--6kMoB8TUKUW3NR-bUw9gHz1vj_5tDNO0ZzfF-7yGIk2jbvdK9sjkccuG2rvHOzyVMKoeU3iEXDfn3uzBBUx15UX6KTa9Ek6AdBypOalhYriNweGTabp85nRlbDoDQZwRLDNk5YNg3kNMvYjqE_Rn_-85nl9JOKYyo4qayIvw030lBG9e9C0s-5nN-Y4Af-do9VrxDNPAQ",
-    },
-]
+import { Link } from "react-router-dom"
 
 export function Portfolio() {
     return (
-        <section id="portfolio" className="py-16 px-6 bg-slate-50">
-            <div className="max-w-7xl mx-auto">
-                <div className="flex justify-between items-end mb-10">
-                    <motion.div
+        <section className="py-24 bg-slate-50">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                    <m.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                        <div className="inline-block px-4 py-1.5 bg-white border border-slate-200 rounded-full text-xs font-bold text-brand-purple uppercase tracking-widest mb-6">
                             Selected Work
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
+                            Recent projects<br />
+                            <span className="text-slate-400">worth seeing.</span>
                         </h2>
-                        <p className="text-slate-600">
-                            Concepts and projects from the studio.
-                        </p>
-                    </motion.div>
-                    <motion.div
+                    </m.div>
+
+                    <m.div
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <Button variant="link" className="group text-lg">
-                            See All Projects{" "}
-                            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                    </motion.div>
+                        <Link to="/work" className="group flex items-center gap-2 text-slate-900 font-bold text-lg">
+                            <span>View All Work</span>
+                            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center border border-slate-200 group-hover:bg-brand-purple group-hover:text-white group-hover:border-brand-purple transition-all duration-300">
+                                <ArrowRight size={18} />
+                            </div>
+                        </Link>
+                    </m.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {projects.map((project, index) => (
-                        <motion.div
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {[1, 2, 3].map((_, index) => (
+                        <m.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -61,32 +47,27 @@ export function Portfolio() {
                             transition={{ duration: 0.6, delay: index * 0.2 }}
                             className="group cursor-pointer"
                         >
-                            <div className="aspect-[4/3] rounded-xl overflow-hidden mb-6 relative bg-slate-200">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    width="800"
-                                    height="600"
-                                    loading="lazy"
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    onError={(e) => {
-                                        // Fallback if image fails
-                                        e.currentTarget.style.display = 'none';
-                                        e.currentTarget.parentElement?.classList.add('flex', 'items-center', 'justify-center', 'bg-slate-300');
-                                        e.currentTarget.parentElement!.innerHTML += '<span class="text-slate-500 font-bold">Image Unavailable</span>';
-                                    }}
-                                />
-                                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                                    <span className="bg-white text-slate-900 px-6 py-2 rounded-full font-bold shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                                        View Concept
-                                    </span>
+                            <div className="h-[400px] bg-white rounded-[2rem] overflow-hidden relative shadow-sm border border-slate-100 group-hover:shadow-2xl transition-all duration-500">
+                                <div className={`absolute inset-0 bg-gradient-to-br ${index === 0 ? 'from-emerald-400 to-teal-600' : index === 1 ? 'from-indigo-400 to-purple-600' : 'from-orange-400 to-pink-600'} opacity-10 group-hover:opacity-100 transition-opacity duration-500`}></div>
+
+                                <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                                    <div className="flex justify-between items-start">
+                                        <div className="px-3 py-1 bg-white/50 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wide">
+                                            {index === 0 ? 'Fintech' : index === 1 ? 'SaaS' : 'E-commerce'}
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h3 className="text-3xl font-black text-slate-900 mb-2 group-hover:text-white transition-colors">
+                                            {index === 0 ? 'VentureFlow' : index === 1 ? 'Nexus Analytics' : 'Aura Lifestyle'}
+                                        </h3>
+                                        <p className="text-lg text-slate-600 group-hover:text-white/90 transition-colors">
+                                            {index === 0 ? 'Banking Reimagined' : index === 1 ? 'Data Visualization' : 'Fashion Platform'}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <h3 className="font-bold text-xl text-slate-900 mb-1">
-                                {project.title}
-                            </h3>
-                            <p className="text-slate-500 text-sm">{project.category}</p>
-                        </motion.div>
+                        </m.div>
                     ))}
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { Plus, Minus } from "lucide-react"
 
 export function FAQ() {
@@ -67,7 +67,7 @@ export function FAQ() {
                                 </button>
                                 <AnimatePresence>
                                     {isOpen && (
-                                        <motion.div
+                                        <m.div
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: "auto", opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
@@ -76,7 +76,7 @@ export function FAQ() {
                                             <div className="p-6 pt-0 text-slate-600 leading-relaxed">
                                                 {faq.answer}
                                             </div>
-                                        </motion.div>
+                                        </m.div>
                                     )}
                                 </AnimatePresence>
                             </div>

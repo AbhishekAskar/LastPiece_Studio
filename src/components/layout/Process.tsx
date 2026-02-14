@@ -1,84 +1,71 @@
-import { motion } from "framer-motion"
-import { Search, Waypoints, Palette, Code, Rocket } from "lucide-react"
-
-const steps = [
-    {
-        icon: Search,
-        title: "Discover",
-        desc: "Auditing and research",
-        color: "text-primary",
-    },
-    {
-        icon: Waypoints,
-        title: "Shape",
-        desc: "Strategy & logic",
-        color: "text-primary",
-    },
-    {
-        icon: Palette,
-        title: "Design",
-        desc: "Visual expression",
-        color: "text-primary",
-    },
-    {
-        icon: Code,
-        title: "Build",
-        desc: "Scalable engineering",
-        color: "text-primary",
-    },
-    {
-        icon: Rocket,
-        title: "Launch",
-        desc: "Performance optimization",
-        color: "text-white",
-        bg: "bg-primary",
-        shadow: "shadow-xl shadow-primary/30",
-    },
-]
+import { m } from "framer-motion"
+import { ScanSearch, PencilRuler, Code2, Rocket } from "lucide-react"
 
 export function Process() {
+    const steps = [
+        {
+            icon: ScanSearch,
+            title: "Discovery",
+            description: "We dive deep into your business goals, target audience, and market landscape to build a solid strategy."
+        },
+        {
+            icon: PencilRuler,
+            title: "Design",
+            description: "We craft visually stunning, user-centric designs that align with your brand identity and conversion goals."
+        },
+        {
+            icon: Code2,
+            title: "Development",
+            description: "Our developers bring designs to life with clean, high-performance code, ensuring responsiveness and speed."
+        },
+        {
+            icon: Rocket,
+            title: "Launch & Growth",
+            description: "We handle the deployment process and provide ongoing support to help your digital presence scale."
+        }
+    ]
+
     return (
-        <section id="process" className="px-6 max-w-7xl mx-auto py-16">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="text-center mb-10"
-            >
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Process</h2>
-                <p className="text-slate-600">
-                    How we turn ideas into completed digital products.
-                </p>
-            </motion.div>
+        <section className="py-24 bg-white">
+            <div className="max-w-7xl mx-auto px-6">
+                <m.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-10"
+                >
+                    <div className="inline-block px-4 py-1.5 bg-slate-50 rounded-full text-xs font-bold text-brand-purple uppercase tracking-widest mb-4">
+                        Our Workflow
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
+                        From concept to <span className="text-brand-purple">reality.</span>
+                    </h2>
+                    <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+                        Our proven process ensures transparency, efficiency, and exceptional results for every project.
+                    </p>
+                </m.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
-                {/* Connector Line (Desktop Only) */}
-                <div className="absolute top-[2.5rem] left-0 w-full h-px bg-slate-200 -z-10 hidden md:block" />
-
-                {steps.map((step, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.15 }}
-                        className="flex flex-col items-center text-center group"
-                    >
-                        <div
-                            className={`w-20 h-20 rounded-full flex items-center justify-center mb-6 z-10 transition-transform duration-300 group-hover:scale-110 ${step.bg
-                                ? `${step.bg} ${step.shadow}`
-                                : "bg-white border border-slate-200 shadow-sm"
-                                }`}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {steps.map((step, index) => (
+                        <m.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.15 }}
+                            className="flex flex-col items-center text-center group"
                         >
-                            <step.icon className={`w-8 h-8 ${step.color}`} />
-                        </div>
-                        <h4 className="font-bold text-slate-900 mb-2">{step.title}</h4>
-                        <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">
-                            {step.desc}
-                        </p>
-                    </motion.div>
-                ))}
+                            <div className="w-20 h-20 bg-slate-50 rounded-2xl flex items-center justify-center mb-6 text-brand-purple group-hover:bg-brand-purple group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-xl group-hover:shadow-brand-purple/20">
+                                <step.icon size={32} />
+                            </div>
+                            <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
+                            <p className="text-slate-600 leading-relaxed text-sm">
+                                {step.description}
+                            </p>
+                        </m.div>
+                    ))}
+                </div>
             </div>
         </section>
     )

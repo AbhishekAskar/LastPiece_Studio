@@ -1,15 +1,12 @@
-import { motion } from "framer-motion"
 import { Quote } from "lucide-react"
+import { MotionWrapper } from "@/components/ui/MotionWrapper"
 
 export function FounderCredibility() {
     return (
         <section className="py-16 md:py-24 px-6 bg-slate-50">
             <div className="max-w-5xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                <MotionWrapper
+                    viewportAmount={0.3}
                     className="bg-white rounded-[2.5rem] p-10 md:p-16 relative overflow-hidden shadow-sm border border-slate-100"
                 >
                     <Quote className="absolute top-10 left-10 text-brand-purple/10 w-32 h-32 rotate-180" />
@@ -22,7 +19,7 @@ export function FounderCredibility() {
                             Most agencies treat you like a number. They pass you off to junior designers while charging senior rates. At LastPiece, you work directly with experts. No bloat, no fluff, just shipping great work.
                         </p>
                     </div>
-                </motion.div>
+                </MotionWrapper>
             </div>
         </section >
     )

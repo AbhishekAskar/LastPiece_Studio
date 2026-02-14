@@ -1,5 +1,5 @@
-import { motion } from "framer-motion"
 import { X, Check } from "lucide-react"
+import { MotionWrapper } from "@/components/ui/MotionWrapper"
 
 export function ProblemSolution() {
     return (
@@ -7,19 +7,11 @@ export function ProblemSolution() {
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
                     {/* Problem Side */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                    <MotionWrapper
                         className="relative"
+                        viewportAmount={0.3}
                     >
-                        <div className="absolute -left-10 -top-10 w-64 h-64 bg-rose-50 rounded-full blur-3xl opacity-50 animate-pulse"></div>
-                        <motion.div
-                            animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-                            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -right-20 top-20 w-48 h-48 bg-orange-50 rounded-full blur-3xl opacity-50"
-                        />
+                        <div className="absolute -left-10 -top-10 w-64 h-64 bg-rose-50 rounded-full blur-3xl opacity-50 will-change-transform"></div>
                         <div className="relative z-10">
                             <h2 className="text-3xl font-black text-slate-900 mb-8 tracking-tight">
                                 Most websites are <span className="text-rose-400">leaking revenue.</span>
@@ -40,18 +32,16 @@ export function ProblemSolution() {
                                 ))}
                             </ul>
                         </div>
-                    </motion.div>
+                    </MotionWrapper>
 
                     {/* Solution Side */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                    <MotionWrapper
+                        delay={0.2}
                         className="relative"
+                        viewportAmount={0.3}
                     >
-                        <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-emerald-50 rounded-full blur-3xl opacity-50"></div>
-                        <div className="relative z-10 bg-slate-900 rounded-3xl p-10 text-white shadow-2xl">
+                        <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-emerald-50 rounded-full blur-3xl opacity-50 will-change-transform"></div>
+                        <div className="relative z-10 bg-slate-900 rounded-3xl p-10 text-white shadow-2xl transform-gpu">
                             <h2 className="text-3xl font-black mb-8 tracking-tight">
                                 We build <span className="text-emerald-300">growth systems.</span>
                             </h2>
@@ -71,7 +61,7 @@ export function ProblemSolution() {
                                 ))}
                             </ul>
                         </div>
-                    </motion.div>
+                    </MotionWrapper>
                 </div>
             </div>
         </section>

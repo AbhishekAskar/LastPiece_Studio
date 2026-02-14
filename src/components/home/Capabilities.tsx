@@ -1,5 +1,7 @@
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { RefreshCw, Layout, Zap, Sparkles, Palette, Target } from "lucide-react"
+import { MotionWrapper } from "@/components/ui/MotionWrapper"
+import { VARIANTS_CONTAINER, VARIANTS_CARD } from "@/lib/animations"
 
 export function Capabilities() {
     const capabilities = [
@@ -51,45 +53,44 @@ export function Capabilities() {
         <section className="section-padding px-6 bg-white border-y border-slate-100">
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="max-w-2xl"
-                    >
+                    <MotionWrapper className="max-w-2xl">
                         <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">
                             How we help you grow
                         </h2>
                         <p className="text-lg text-slate-600 max-w-xl">
                             We don't just "do design". We build specific assets that solve business problems.
                         </p>
-                    </motion.div>
+                    </MotionWrapper>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <m.div
+                    variants={VARIANTS_CONTAINER}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                >
                     {capabilities.map((capability, index) => (
-                        <motion.div
+                        <m.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            whileHover={{ y: -5 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.05 }}
-                            className={`group p-8 rounded-2xl border border-transparent ${capability.cardBg} hover:shadow-xl transition-all duration-300 flex flex-col items-start h-full`}
+                            variants={VARIANTS_CARD}
+                            whileHover="hover"
+                            className={`group p-8 rounded-2xl border border-transparent ${capability.cardBg} hover:shadow-xl transition-all duration-300 flex flex-col items-start h-full transform-gpu`}
                         >
-                            <div className={`w-12 h-12 ${capability.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                                <capability.icon className="w-6 h-6" />
+                            <div className="w-full">
+                                <div className={`w-12 h-12 ${capability.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                                    <capability.icon className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                                    {capability.title}
+                                </h3>
+                                <p className="text-slate-600 text-sm leading-relaxed">
+                                    {capability.desc}
+                                </p>
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-2">
-                                {capability.title}
-                            </h3>
-                            <p className="text-slate-600 text-sm leading-relaxed">
-                                {capability.desc}
-                            </p>
-                        </motion.div>
+                        </m.div>
                     ))}
-                </div>
+                </m.div>
             </div>
         </section>
     )
