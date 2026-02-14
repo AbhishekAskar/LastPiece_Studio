@@ -5,17 +5,8 @@ import { Puzzle, Menu, X } from "lucide-react"
 import { Link, useLocation } from "react-router-dom"
 
 export function Navbar() {
-    const [scrolled, setScrolled] = useState(false)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const location = useLocation()
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20)
-        }
-        window.addEventListener("scroll", handleScroll)
-        return () => window.removeEventListener("scroll", handleScroll)
-    }, [])
 
     const navLinks = [
         { name: "Services", to: "/services" },
@@ -50,17 +41,10 @@ export function Navbar() {
     return (
         <>
             <header
-                className={cn(
-                    "fixed top-0 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300",
-                    scrolled ? "pt-2 md:pt-4" : "pt-4 md:pt-6"
-                )}
+                className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 md:pt-6"
             >
                 <div
-                    className={cn(
-                        "w-full max-w-7xl flex items-center justify-between px-4 md:px-8 transition-all duration-300 transform-gpu",
-                        "bg-white/90 backdrop-blur-sm border border-white/20 ring-1 ring-black/5 shadow-sm rounded-full",
-                        scrolled ? "h-14 md:h-16" : "h-16 md:h-[72px]"
-                    )}
+                    className="w-full max-w-7xl flex items-center justify-between px-4 md:px-8 border border-slate-100 shadow-sm rounded-full bg-white py-3 h-16 md:h-[72px]"
                 >
                     {/* Logo */}
                     <Link
@@ -69,7 +53,7 @@ export function Navbar() {
                         onClick={scrollToTop}
                     >
                         <div
-                            className="bg-brand-purple text-white rounded-xl flex items-center justify-center w-8 h-8 md:w-10 md:h-10 shadow-lg shadow-brand-purple/20 transition-transform duration-300 group-hover:scale-105"
+                            className="bg-brand-purple text-white rounded-xl flex items-center justify-center w-8 h-8 md:w-10 md:h-10 shadow-lg shadow-brand-purple/20"
                         >
                             <Puzzle strokeWidth={2.5} size={20} className="text-white -rotate-12 md:w-6 md:h-6" />
                         </div>
@@ -90,13 +74,13 @@ export function Navbar() {
                                 key={link.name}
                                 to={link.to}
                                 className={cn(
-                                    "text-sm font-semibold transition-all duration-200 group relative",
+                                    "text-sm font-semibold transition-colors duration-200 relative",
                                     isActive(link.to)
                                         ? "text-brand-purple"
                                         : "text-slate-600 hover:text-brand-purple"
                                 )}
                             >
-                                <span className="block transform transition-transform group-hover:-translate-y-0.5">
+                                <span>
                                     {link.name}
                                 </span>
                                 {isActive(link.to) && (
