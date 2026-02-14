@@ -25,7 +25,6 @@ export default defineConfig({
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'framer-motion': ['framer-motion'],
           'ui-vendor': ['lucide-react', 'clsx', 'tailwind-merge'],
         },
       },

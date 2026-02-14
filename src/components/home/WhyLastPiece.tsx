@@ -1,7 +1,5 @@
-import { m } from "framer-motion"
 import { Check, Puzzle } from "lucide-react"
 import { MotionWrapper } from "@/components/ui/MotionWrapper"
-import { VARIANTS_CONTAINER, VARIANTS_SECTION, VARIANTS_CARD } from "@/lib/animations"
 
 export function WhyLastPiece() {
     const points = [
@@ -33,13 +31,7 @@ export function WhyLastPiece() {
                             Why work with us?
                         </h2>
 
-                        <m.div
-                            variants={VARIANTS_CONTAINER}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="space-y-4"
-                        >
+                        <div className="space-y-4">
                             {points.map((point, index) => {
                                 const colors = [
                                     "bg-purple-100 text-purple-600",
@@ -50,9 +42,8 @@ export function WhyLastPiece() {
                                 const colorClass = colors[index % colors.length]
 
                                 return (
-                                    <m.div
+                                    <div
                                         key={index}
-                                        variants={VARIANTS_SECTION}
                                         className="flex items-center gap-4"
                                     >
                                         <div className={`w-8 h-8 rounded-full ${colorClass} flex items-center justify-center flex-shrink-0`}>
@@ -61,17 +52,14 @@ export function WhyLastPiece() {
                                         <span className="text-xl font-medium text-slate-800">
                                             {point}
                                         </span>
-                                    </m.div>
+                                    </div>
                                 )
                             })}
-                        </m.div>
+                        </div>
                     </MotionWrapper>
 
                     {/* Right side - Visual card */}
                     <MotionWrapper
-                        delay={0.2}
-                        variants={VARIANTS_CARD}
-                        whileHover="hover"
                         className="transform-gpu"
                     >
                         <div className="bg-gradient-to-br from-pastel-purple/20 via-pastel-blue/20 to-pastel-pink/20 p-12 rounded-3xl border border-white/50 shadow-lg">

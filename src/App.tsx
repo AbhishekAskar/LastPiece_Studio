@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react"
 // import Lenis from "lenis"
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
-import { LazyMotion, domAnimation } from "framer-motion"
+
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 
@@ -44,25 +44,23 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <LazyMotion features={domAnimation}>
-        <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-brand-purple/20 selection:text-brand-purple">
-          <Navbar />
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/approach" element={<Approach />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/work" element={<Work />} />
-              <Route path="/work/nexus-saas" element={<NexusSaaS />} />
-              <Route path="/work/venture-flow" element={<VentureFlow />} />
-              <Route path="/work/aura-lifestyle" element={<AuraLifestyle />} />
-              <Route path="/studio" element={<Studio />} />
-              <Route path="/contact" element={<div className="pt-24"><Contact /></div>} />
-            </Routes>
-          </Suspense>
-          <Footer />
-        </div>
-      </LazyMotion>
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-brand-purple/20 selection:text-brand-purple">
+        <Navbar />
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/approach" element={<Approach />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/work" element={<Work />} />
+            <Route path="/work/nexus-saas" element={<NexusSaaS />} />
+            <Route path="/work/venture-flow" element={<VentureFlow />} />
+            <Route path="/work/aura-lifestyle" element={<AuraLifestyle />} />
+            <Route path="/studio" element={<Studio />} />
+            <Route path="/contact" element={<div className="pt-24"><Contact /></div>} />
+          </Routes>
+        </Suspense>
+        <Footer />
+      </div>
     </Router>
   )
 }

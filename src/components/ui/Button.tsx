@@ -1,6 +1,5 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { m } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
@@ -39,21 +38,17 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant, size, asChild = false, ...props }, ref) => {
-        // We use m.button for animations
-        const Comp = m.button as any
-
         return (
-            <Comp
+            <button
                 ref={ref}
                 className={cn(buttonVariants({ variant, size, className }), "relative overflow-hidden group")}
-                whileTap={{ scale: 0.95 }}
                 {...props}
             >
                 <span className="relative z-10 flex items-center justify-center gap-2">{props.children}</span>
                 {variant === 'default' && (
                     <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent z-0" />
                 )}
-            </Comp>
+            </button>
         )
     }
 )

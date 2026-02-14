@@ -1,4 +1,4 @@
-import { m } from "framer-motion"
+
 import { ArrowRight, ArrowLeft } from "lucide-react"
 import { Link } from "react-router-dom"
 
@@ -14,13 +14,8 @@ interface ProjectCardProps {
 export function ProjectCard({ title, category, summary, gradientFrom, gradientTo, link }: ProjectCardProps) {
     return (
         <Link to={link}>
-            <m.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                whileHover={{ y: -8 }}
-                className="group cursor-pointer"
+            <div
+                className="group cursor-pointer hover:-translate-y-2 transition-transform duration-300"
             >
                 <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
                     {/* Project Image */}
@@ -50,7 +45,7 @@ export function ProjectCard({ title, category, summary, gradientFrom, gradientTo
                         </p>
                     </div>
                 </div>
-            </m.div>
+            </div>
         </Link>
     )
 }
@@ -62,15 +57,12 @@ interface BackButtonProps {
 export function BackButton({ to = "/work" }: BackButtonProps) {
     return (
         <Link to={to}>
-            <m.button
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 text-slate-600 hover:text-brand-purple font-medium transition-colors mb-8"
+            <button
+                className="inline-flex items-center gap-2 text-slate-600 hover:text-brand-purple font-medium transition-colors mb-8 animate-fade-in"
             >
                 <ArrowLeft size={20} />
                 Back to Work
-            </m.button>
+            </button>
         </Link>
     )
 }

@@ -1,7 +1,5 @@
-import { m } from "framer-motion"
 import { Link } from "react-router-dom"
 import { ArrowRight, Brain, Eye, Zap, Users } from "lucide-react"
-import { VARIANTS_CARD } from "@/lib/animations"
 
 
 export function SelectedWork() {
@@ -66,12 +64,8 @@ export function SelectedWork() {
         <section className="section-padding px-6 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-                    <m.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="max-w-3xl"
+                    <div
+                        className="max-w-3xl animate-fade-in"
                     >
                         <span className="text-brand-purple font-bold tracking-widest uppercase text-xs mb-4 block">
                             Our Work
@@ -85,20 +79,14 @@ export function SelectedWork() {
                         <p className="mt-4 text-slate-500 text-lg max-w-3xl">
                             These are self-initiated product and website directions created to demonstrate our approach to clarity, usability, and conversion-focused design.
                         </p>
-                    </m.div>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 gap-20 mb-32">
                     {projects.map((project, index) => (
                         <Link to={project.link} key={index} className="group block">
-                            <m.div
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.05 }}
+                            <div
                                 className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center transform-gpu"
-                                layout={false}
                             >
                                 {/* Visual Side */}
                                 <div className="h-72 md:h-[450px] w-full relative overflow-hidden rounded-[2.5rem] group shadow-sm hover:shadow-xl transition-all duration-300">
@@ -127,44 +115,40 @@ export function SelectedWork() {
                                         View Concept <ArrowRight size={20} />
                                     </div>
                                 </div>
-                            </m.div>
+                            </div>
                         </Link>
                     ))}
                 </div>
 
                 {/* How We Approach New Work - Credibility Section */}
                 <div className="bg-slate-50 rounded-[3rem] p-8 md:p-16 border border-slate-100">
-                    <m.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                    <div
                         className="text-center mb-12"
                     >
                         <h3 className="text-3xl font-black text-slate-900 mb-4">How we approach new work</h3>
                         <p className="text-slate-600 text-lg max-w-2xl mx-auto">
                             We bring the same level of strategic thinking and craftsmanship to every client partnership.
                         </p>
-                    </m.div>
+                    </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {approaches.map((item, index) => (
-                            <m.div
+                            <div
                                 key={index}
-                                variants={VARIANTS_CARD}
-                                whileHover="hover"
                                 className={`${item.color} p-8 rounded-3xl shadow-sm border hover:shadow-md transition-all`}
                             >
                                 <div>
-                                    <div className="w-12 h-12 bg-brand-purple/5 rounded-2xl flex items-center justify-center mb-6 text-brand-purple">
-                                        <item.icon size={24} />
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <div className="w-12 h-12 bg-brand-purple/5 rounded-2xl flex items-center justify-center text-brand-purple shrink-0">
+                                            <item.icon size={24} />
+                                        </div>
+                                        <h4 className="font-bold text-slate-900 text-lg">{item.title}</h4>
                                     </div>
-                                    <h4 className="font-bold text-slate-900 mb-3 text-lg">{item.title}</h4>
                                     <p className="text-slate-500 text-sm leading-relaxed">
                                         {item.desc}
                                     </p>
                                 </div>
-                            </m.div>
+                            </div>
                         ))}
                     </div>
                 </div>

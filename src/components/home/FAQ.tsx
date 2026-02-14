@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { m, AnimatePresence } from "framer-motion"
 import { Plus, Minus } from "lucide-react"
 
 export function FAQ() {
@@ -65,20 +64,15 @@ export function FAQ() {
                                         {isOpen ? <Minus size={20} /> : <Plus size={20} />}
                                     </div>
                                 </button>
-                                <AnimatePresence>
-                                    {isOpen && (
-                                        <m.div
-                                            initial={{ height: 0, opacity: 0 }}
-                                            animate={{ height: "auto", opacity: 1 }}
-                                            exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                                        >
-                                            <div className="p-6 pt-0 text-slate-600 leading-relaxed">
-                                                {faq.answer}
-                                            </div>
-                                        </m.div>
-                                    )}
-                                </AnimatePresence>
+                                <div
+                                    className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+                                >
+                                    <div className="overflow-hidden">
+                                        <div className="p-6 pt-0 text-slate-600 leading-relaxed">
+                                            {faq.answer}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         )
                     })}

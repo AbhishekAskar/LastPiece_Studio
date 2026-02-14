@@ -1,4 +1,4 @@
-import { m } from "framer-motion"
+
 import { ArrowRight } from "lucide-react"
 import { Link } from "react-router-dom"
 
@@ -7,11 +7,9 @@ export function Portfolio() {
         <section className="py-24 bg-slate-50">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-                    <m.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+
+                    <div
+                        className="animate-fade-in"
                     >
                         <div className="inline-block px-4 py-1.5 bg-white border border-slate-200 rounded-full text-xs font-bold text-brand-purple uppercase tracking-widest mb-6">
                             Selected Work
@@ -20,13 +18,11 @@ export function Portfolio() {
                             Recent projects<br />
                             <span className="text-slate-400">worth seeing.</span>
                         </h2>
-                    </m.div>
+                    </div>
 
-                    <m.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                    <div
+                        className="animate-fade-in"
+                        style={{ animationDelay: '0.2s' }}
                     >
                         <Link to="/work" className="group flex items-center gap-2 text-slate-900 font-bold text-lg">
                             <span>View All Work</span>
@@ -34,20 +30,17 @@ export function Portfolio() {
                                 <ArrowRight size={18} />
                             </div>
                         </Link>
-                    </m.div>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {[1, 2, 3].map((_, index) => (
-                        <m.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.2 }}
-                            className="group cursor-pointer"
+                            className="group cursor-pointer animate-fade-in-up"
+                            style={{ animationDelay: `${index * 0.2}s` }}
                         >
-                            <div className="h-[400px] bg-white rounded-[2rem] overflow-hidden relative shadow-sm border border-slate-100 group-hover:shadow-2xl transition-all duration-500">
+                            <div className="h-[400px] bg-white rounded-[2rem] overflow-hidden relative shadow-sm border border-slate-100 group-hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
                                 <div className={`absolute inset-0 bg-gradient-to-br ${index === 0 ? 'from-emerald-400 to-teal-600' : index === 1 ? 'from-indigo-400 to-purple-600' : 'from-orange-400 to-pink-600'} opacity-10 group-hover:opacity-100 transition-opacity duration-500`}></div>
 
                                 <div className="absolute inset-0 p-8 flex flex-col justify-between">
@@ -67,7 +60,7 @@ export function Portfolio() {
                                     </div>
                                 </div>
                             </div>
-                        </m.div>
+                        </div>
                     ))}
                 </div>
             </div>

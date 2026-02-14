@@ -1,4 +1,4 @@
-import { m } from "framer-motion"
+
 import { Send, Image as ImageIcon, CheckCircle2, AlertCircle } from "lucide-react"
 import { useState } from "react"
 
@@ -75,12 +75,8 @@ export function Contact() {
     return (
         <section id="contact" className="section-padding px-4 md:px-6 bg-[#fff9f2] relative overflow-hidden">
             <div className="mx-auto max-w-xl relative z-10">
-                <m.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-8 md:mb-12 relative"
+                <div
+                    className="text-center mb-8 md:mb-12 relative animate-fade-in"
                 >
                     <span className="text-brand-purple text-xs font-black uppercase tracking-[0.3em] mb-3 block">
                         Inquiry
@@ -93,14 +89,10 @@ export function Contact() {
                     <div className="absolute -top-10 -right-20 opacity-10 hidden sm:block">
                         <ImageIcon className="w-24 h-24 transform rotate-12 text-slate-400 drop-shadow-2xl" />
                     </div>
-                </m.div>
+                </div>
 
-                <m.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="bg-white rounded-3xl shadow-xl border border-white/50 p-6 md:p-10 relative"
+                <div
+                    className="bg-white rounded-3xl shadow-xl border border-white/50 p-6 md:p-10 relative animate-fade-in-up"
                 >
                     <form className="space-y-6 md:space-y-8" onSubmit={handleSubmit}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
@@ -207,30 +199,26 @@ export function Contact() {
 
                         {/* Success Message */}
                         {submitStatus === "success" && (
-                            <m.div
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 flex items-center gap-3"
+                            <div
+                                className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 flex items-center gap-3 animate-fade-in"
                             >
                                 <CheckCircle2 className="text-emerald-600 shrink-0" size={20} />
                                 <p className="text-emerald-800 text-sm font-medium">
                                     Thank you! Your inquiry has been sent successfully. We'll get back to you soon.
                                 </p>
-                            </m.div>
+                            </div>
                         )}
 
                         {/* Error Message */}
                         {submitStatus === "error" && (
-                            <m.div
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3"
+                            <div
+                                className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3 animate-fade-in"
                             >
                                 <AlertCircle className="text-red-600 shrink-0" size={20} />
                                 <p className="text-red-800 text-sm font-medium">
                                     Oops! Something went wrong. Please check your information and try again.
                                 </p>
-                            </m.div>
+                            </div>
                         )}
 
                         <button
@@ -260,7 +248,7 @@ export function Contact() {
                             </a>
                         </p>
                     </form>
-                </m.div>
+                </div>
             </div>
         </section>
     )

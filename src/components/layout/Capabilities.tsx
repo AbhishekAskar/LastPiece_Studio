@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+
 import { Rocket, RefreshCcw, MousePointerClick, LayoutGrid, Zap } from "lucide-react"
 
 const capabilities = [
@@ -42,26 +42,19 @@ const capabilities = [
 export function Capabilities() {
     return (
         <section id="capabilities" className="py-16 px-6 max-w-7xl mx-auto">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="mb-10"
+            <div
+                className="mb-10 animate-fade-in"
             >
                 <h2 className="text-3xl font-bold text-slate-900 mb-4">Capabilities</h2>
                 <div className="w-12 h-1 bg-primary rounded-full"></div>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                 {capabilities.map((cap, index) => (
-                    <motion.div
+                    <div
                         key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className={`${cap.bg} p-8 rounded-xl border border-slate-200/60 flex flex-col items-start gap-6 hover:shadow-xl transition-shadow cursor-default`}
+                        className={`${cap.bg} p-8 rounded-xl border border-slate-200/60 flex flex-col items-start gap-6 hover:shadow-xl transition-shadow cursor-default animate-fade-in-up`}
+                        style={{ animationDelay: `${index * 0.1}s` }}
                     >
                         <div className="bg-white p-3 rounded-lg shadow-sm">
                             <cap.icon className={`w-8 h-8 ${cap.color}`} />
@@ -72,7 +65,7 @@ export function Capabilities() {
                                 {cap.desc}
                             </p>
                         </div>
-                    </motion.div>
+                    </div>
                 ))}
             </div>
         </section>

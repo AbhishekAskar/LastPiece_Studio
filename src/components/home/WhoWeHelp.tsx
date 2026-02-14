@@ -1,7 +1,5 @@
-import { m } from "framer-motion"
 import { Rocket, Building2, TrendingUp } from "lucide-react"
 import { MotionWrapper } from "@/components/ui/MotionWrapper"
-import { VARIANTS_CONTAINER, VARIANTS_CARD } from "@/lib/animations"
 
 export function WhoWeHelp() {
     const audiences = [
@@ -40,34 +38,30 @@ export function WhoWeHelp() {
                     </p>
                 </MotionWrapper>
 
-                <m.div
-                    variants={VARIANTS_CONTAINER}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-50px" }}
+                <div
                     className="grid grid-cols-1 md:grid-cols-3 gap-8"
                 >
                     {audiences.map((item, index) => (
-                        <m.div
+                        <div
                             key={index}
-                            variants={VARIANTS_CARD}
-                            whileHover="hover"
-                            className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm transition-all duration-300 group"
+                            className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm transition-all duration-300 group hover:shadow-lg"
                         >
                             <div className="h-full">
-                                <div className={`w-14 h-14 ${item.bg} ${item.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                                    <item.icon size={28} />
+                                <div className="flex items-center gap-4 mb-4">
+                                    <div className={`w-14 h-14 ${item.bg} ${item.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shrink-0`}>
+                                        <item.icon size={28} />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+                                        {item.title}
+                                    </h3>
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">
-                                    {item.title}
-                                </h3>
                                 <p className="text-slate-600 leading-relaxed">
                                     {item.desc}
                                 </p>
                             </div>
-                        </m.div>
+                        </div>
                     ))}
-                </m.div>
+                </div>
             </div>
         </section>
     )

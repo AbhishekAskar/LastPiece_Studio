@@ -1,20 +1,15 @@
-import { m } from "framer-motion"
 import { ArrowRight, Check, X, Target, Users, Zap, Heart, Eye } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { Link } from "react-router-dom"
 import { MotionWrapper } from "@/components/ui/MotionWrapper"
-import { VARIANTS_HERO, VARIANTS_CONTAINER, VARIANTS_CARD } from "@/lib/animations"
 
 export function Studio() {
     return (
         <>
             {/* 1) HERO */}
             <section className="relative flex items-center justify-center overflow-hidden gradient-mesh px-4 md:px-6 pt-32 pb-16 md:pt-48 md:pb-24 min-h-[60vh] md:min-h-[70vh]">
-                <m.div
-                    variants={VARIANTS_HERO}
-                    initial="hidden"
-                    animate="visible"
-                    className="max-w-5xl text-center mx-auto relative z-10 will-change-transform"
+                <div
+                    className="max-w-5xl text-center mx-auto relative z-10 will-change-transform animate-fade-in"
                 >
                     <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-slate-900 mb-6 md:mb-8 leading-[1.1] tracking-tight">
                         We build <span className="text-brand-purple">what was missing.</span>
@@ -27,7 +22,7 @@ export function Studio() {
                             Start a Project <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
                     </Link>
-                </m.div>
+                </div>
 
                 {/* Background Blobs */}
                 <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-blue/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60 will-change-transform" />
@@ -79,11 +74,7 @@ export function Studio() {
                         <p className="text-base md:text-lg text-slate-600">Principles that guide every pixel we ship.</p>
                     </MotionWrapper>
 
-                    <m.div
-                        variants={VARIANTS_CONTAINER}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-50px" }}
+                    <div
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
                     >
                         {[
@@ -92,22 +83,22 @@ export function Studio() {
                             { icon: Zap, title: "Performance", desc: "Fast, accessible, and conversion-ready.", color: "bg-amber-50/60 border-amber-100" },
                             { icon: Users, title: "Human", desc: "Digital products for real people.", color: "bg-emerald-50/60 border-emerald-100" }
                         ].map((item, index) => (
-                            <m.div
+                            <div
                                 key={index}
-                                variants={VARIANTS_CARD}
-                                whileHover="hover"
-                                className={`${item.color} p-6 md:p-8 rounded-2xl md:rounded-3xl border hover:shadow-lg transition-all duration-300 group`}
+                                className={`${item.color} p-6 md:p-8 rounded-2xl md:rounded-3xl border hover:shadow-lg transition-all duration-300 group hover:-translate-y-1`}
                             >
                                 <div>
-                                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl flex items-center justify-center mb-4 md:mb-6 text-slate-900 shadow-sm">
-                                        <item.icon size={20} className="md:w-6 md:h-6" />
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl flex items-center justify-center text-slate-900 shadow-sm shrink-0">
+                                            <item.icon size={20} className="md:w-6 md:h-6" />
+                                        </div>
+                                        <h3 className="text-lg md:text-xl font-bold text-slate-900">{item.title}</h3>
                                     </div>
-                                    <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3">{item.title}</h3>
                                     <p className="text-sm md:text-base text-slate-600 leading-relaxed">{item.desc}</p>
                                 </div>
-                            </m.div>
+                            </div>
                         ))}
-                    </m.div>
+                    </div>
                 </section>
 
                 {/* 4) HOW WORKING TOGETHER FEELS */}
@@ -150,11 +141,7 @@ export function Studio() {
                     <MotionWrapper className="mb-8 md:mb-12 text-center md:text-left">
                         <h2 className="text-2xl md:text-3xl font-black text-slate-900">Values that drive results</h2>
                     </MotionWrapper>
-                    <m.div
-                        variants={VARIANTS_CONTAINER}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-50px" }}
+                    <div
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
                     >
                         {[
@@ -163,18 +150,18 @@ export function Studio() {
                             { icon: Zap, title: "Speed", desc: "Momentum is a key feature.", color: "bg-blue-50/60 border-blue-100" },
                             { icon: Heart, title: "Craft", desc: "Details matter. A lot.", color: "bg-rose-50/60 border-rose-100" }
                         ].map((value, index) => (
-                            <m.div
+                            <div
                                 key={index}
-                                variants={VARIANTS_CARD}
-                                whileHover="hover"
-                                className={`border ${value.color} p-6 md:p-8 rounded-2xl h-full hover:shadow-md transition-all`}
+                                className={`border ${value.color} p-6 md:p-8 rounded-2xl h-full hover:shadow-md transition-all hover:-translate-y-1`}
                             >
-                                <value.icon className="w-6 h-6 md:w-8 md:h-8 text-brand-purple mb-3 md:mb-4" />
-                                <h3 className="font-bold text-base md:text-lg text-slate-900 mb-2">{value.title}</h3>
+                                <div className="flex items-center gap-3 md:gap-4 mb-4">
+                                    <value.icon className="w-6 h-6 md:w-8 md:h-8 text-brand-purple shrink-0" />
+                                    <h3 className="font-bold text-base md:text-lg text-slate-900">{value.title}</h3>
+                                </div>
                                 <p className="text-sm text-slate-600 leading-relaxed">{value.desc}</p>
-                            </m.div>
+                            </div>
                         ))}
-                    </m.div>
+                    </div>
                 </section>
 
                 {/* 6) BUILT FOR SPEED & QUALITY (Credibility) */}

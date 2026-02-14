@@ -1,4 +1,4 @@
-import { m } from "framer-motion"
+
 import { ScanSearch, PencilRuler, Code2, Rocket } from "lucide-react"
 
 export function Process() {
@@ -28,12 +28,8 @@ export function Process() {
     return (
         <section className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-6">
-                <m.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-10"
+                <div
+                    className="text-center mb-10 animate-fade-in"
                 >
                     <div className="inline-block px-4 py-1.5 bg-slate-50 rounded-full text-xs font-bold text-brand-purple uppercase tracking-widest mb-4">
                         Our Workflow
@@ -44,17 +40,14 @@ export function Process() {
                     <p className="text-xl text-slate-600 max-w-2xl mx-auto">
                         Our proven process ensures transparency, efficiency, and exceptional results for every project.
                     </p>
-                </m.div>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {steps.map((step, index) => (
-                        <m.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.15 }}
-                            className="flex flex-col items-center text-center group"
+                            className="flex flex-col items-center text-center group animate-fade-in-up"
+                            style={{ animationDelay: `${index * 0.15}s` }}
                         >
                             <div className="w-20 h-20 bg-slate-50 rounded-2xl flex items-center justify-center mb-6 text-brand-purple group-hover:bg-brand-purple group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-xl group-hover:shadow-brand-purple/20">
                                 <step.icon size={32} />
@@ -63,7 +56,7 @@ export function Process() {
                             <p className="text-slate-600 leading-relaxed text-sm">
                                 {step.description}
                             </p>
-                        </m.div>
+                        </div>
                     ))}
                 </div>
             </div>

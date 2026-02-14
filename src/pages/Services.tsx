@@ -1,9 +1,7 @@
-import { m } from "framer-motion"
 import { ArrowRight, Sparkles, RefreshCw, Boxes, Gauge, Lightbulb, PenTool, Code2, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { Link } from "react-router-dom"
 import { MotionWrapper } from "@/components/ui/MotionWrapper"
-import { VARIANTS_HERO, VARIANTS_CONTAINER, VARIANTS_SECTION, VARIANTS_CARD } from "@/lib/animations"
 
 export function Services() {
     const servicePillars = [
@@ -56,11 +54,8 @@ export function Services() {
         <>
             {/* Hero Section */}
             <section className="relative flex items-center justify-center overflow-hidden gradient-mesh px-4 md:px-6 pt-32 pb-16 md:pt-48 md:pb-24 min-h-[60vh] md:min-h-[70vh]">
-                <m.div
-                    variants={VARIANTS_HERO}
-                    initial="hidden"
-                    animate="visible"
-                    className="max-w-5xl text-center mx-auto relative z-10 will-change-transform"
+                <div
+                    className="max-w-5xl text-center mx-auto relative z-10 will-change-transform animate-fade-in"
                 >
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-6 md:mb-8 leading-[1.1]">
                         Services designed for <span className="text-brand-purple">impact.</span>
@@ -68,7 +63,7 @@ export function Services() {
                     <p className="text-lg md:text-2xl text-slate-600 leading-relaxed font-light max-w-3xl mx-auto px-2">
                         We don't sell "hours". We sell outcomes. Clear packages to help you launch, pivot, or grow.
                     </p>
-                </m.div>
+                </div>
 
                 {/* Background Blobs */}
                 <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-blue/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60 will-change-transform" />
@@ -78,19 +73,13 @@ export function Services() {
             <div className="pb-16">
                 {/* Service Pillars - Detailed Grid */}
                 <section className="px-6 max-w-7xl mx-auto pb-24">
-                    <m.div
-                        variants={VARIANTS_CONTAINER}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-50px" }}
+                    <div
                         className="grid grid-cols-1 md:grid-cols-2 gap-8"
                     >
                         {servicePillars.map((service, index) => (
-                            <m.div
+                            <div
                                 key={index}
-                                variants={VARIANTS_CARD}
-                                whileHover="hover"
-                                className={`p-8 rounded-[2rem] border ${service.color} hover:shadow-xl transition-all duration-300 group bg-white transform-gpu`}
+                                className={`p-8 rounded-[2rem] border ${service.color} hover:shadow-xl transition-all duration-300 group bg-white transform-gpu hover:-translate-y-1`}
                             >
                                 <div className="h-full">
                                     <div className="flex justify-between items-start mb-6">
@@ -130,9 +119,9 @@ export function Services() {
                                         </div>
                                     </div>
                                 </div>
-                            </m.div>
+                            </div>
                         ))}
-                    </m.div>
+                    </div>
                 </section>
 
                 {/* Process - Horizontal Timeline */}
@@ -149,36 +138,27 @@ export function Services() {
                             </p>
                         </MotionWrapper>
 
-                        <m.div
-                            variants={VARIANTS_CONTAINER}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-50px" }}
+                        <div
                             className="grid grid-cols-1 md:grid-cols-4 gap-8 relative"
                         >
                             {/* Connecting Line (Desktop) */}
-                            <m.div
-                                initial={{ scaleX: 0 }}
-                                whileInView={{ scaleX: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 1, ease: "easeInOut" }}
-                                className="absolute top-10 left-0 w-full h-0.5 bg-white/10 -z-10 hidden md:block origin-left will-change-transform"
+                            <div
+                                className="absolute top-10 left-0 w-full h-0.5 bg-white/10 -z-10 hidden md:block"
                             />
 
                             {processSteps.map((step, index) => (
-                                <m.div
+                                <div
                                     key={index}
-                                    variants={VARIANTS_SECTION}
                                     className="text-center relative"
                                 >
-                                    <div className="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mb-6 mx-auto shadow-xl border border-white/10 relative z-10">
+                                    <div className="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mb-6 mx-auto shadow-xl border border-white/10 relative z-10 transition-transform hover:scale-110 duration-300">
                                         <span className="text-2xl font-black text-brand-purple">{step.number}</span>
                                     </div>
                                     <h3 className="font-bold text-xl mb-2">{step.title}</h3>
                                     <p className="text-sm text-slate-400">{step.desc}</p>
-                                </m.div>
+                                </div>
                             ))}
-                        </m.div>
+                        </div>
                     </div>
                 </section>
 

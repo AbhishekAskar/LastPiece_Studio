@@ -1,4 +1,4 @@
-import { m } from "framer-motion"
+
 import { CheckCircle2 } from "lucide-react"
 
 export function WhyUs() {
@@ -14,12 +14,7 @@ export function WhyUs() {
     return (
         <section className="py-24 bg-slate-50">
             <div className="max-w-7xl mx-auto px-6">
-                <m.div
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
+                <div className="animate-fade-in">
                     <div className="inline-block px-4 py-1.5 bg-white border border-slate-200 rounded-full text-xs font-bold text-brand-purple uppercase tracking-widest mb-6">
                         Why Choose Us
                     </div>
@@ -29,7 +24,7 @@ export function WhyUs() {
                             We solve business problems.
                         </span>
                     </h2>
-                </m.div>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <div>
@@ -38,31 +33,24 @@ export function WhyUs() {
                         </p>
                         <ul className="space-y-4">
                             {benefits.map((benefit, index) => (
-                                <m.li
+                                <li
                                     key={index}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    className="flex items-start gap-4"
+                                    className="flex items-start gap-4 animate-fade-in"
+                                    style={{ animationDelay: `${index * 0.1}s` }}
                                 >
                                     <div className="mt-1 bg-white p-1 rounded-full shadow-sm border border-slate-100">
                                         <CheckCircle2 className="text-brand-purple" size={16} />
                                     </div>
                                     <span className="text-slate-700 font-medium">{benefit}</span>
-                                </m.li>
+                                </li>
                             ))}
                         </ul>
                     </div>
 
                     <div className="relative">
                         <div className="absolute inset-0 bg-brand-purple/5 blur-3xl rounded-full transform -translate-y-1/2"></div>
-                        <m.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="relative bg-white p-8 rounded-[2.5rem] shadow-2xl border border-slate-100"
+                        <div
+                            className="relative bg-white p-8 rounded-[2.5rem] shadow-2xl border border-slate-100 animate-fade-in-up"
                         >
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-12 h-12 bg-slate-100 rounded-full overflow-hidden">
@@ -88,7 +76,7 @@ export function WhyUs() {
                                     </svg>
                                 ))}
                             </div>
-                        </m.div>
+                        </div>
                     </div>
                 </div>
             </div>

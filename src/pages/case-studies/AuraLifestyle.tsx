@@ -1,4 +1,4 @@
-import { m } from "framer-motion"
+
 import { Sparkles, ShoppingBag, ArrowLeft, Heart } from "lucide-react"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/Button"
@@ -18,18 +18,15 @@ export function AuraLifestyle() {
     return (
         <div className="bg-slate-50 min-h-screen pt-32">
             {/* Floating Back Button */}
-            <m.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: isScrolled ? 1 : 0, x: isScrolled ? 0 : -20, pointerEvents: isScrolled ? 'auto' : 'none' }}
-                transition={{ duration: 0.3 }}
-                className="fixed top-24 md:top-28 left-6 z-40"
+            <div
+                className={`fixed top-24 md:top-28 left-6 z-40 transition-all duration-300 ${isScrolled ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 -translate-x-5 pointer-events-none'}`}
             >
                 <Link to="/work" className="bg-white/50 backdrop-blur-md border border-white/20 shadow-sm hover:shadow-md text-slate-600 hover:text-brand-purple px-4 py-2 rounded-full flex items-center gap-2 transition-all text-sm font-medium group">
                     <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform" />
                     <span className="hidden md:inline">Back to Work</span>
                     <span className="md:hidden">Back</span>
                 </Link>
-            </m.div>
+            </div>
 
             {/* Project Hero */}
             <section className="pb-20 px-6">
@@ -37,10 +34,8 @@ export function AuraLifestyle() {
                     <Link to="/work" className="inline-flex items-center gap-2 text-slate-500 hover:text-brand-purple mb-8 transition-colors group">
                         <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" /> Back to Work
                     </Link>
-                    <m.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                    <div
+                        className="animate-fade-in"
                     >
                         <div className="bg-white/50 backdrop-blur-sm border border-slate-200 inline-block px-4 py-1.5 rounded-full mb-6">
                             <span className="text-xs font-bold uppercase tracking-widest text-brand-purple">Concept Project</span>
@@ -51,17 +46,15 @@ export function AuraLifestyle() {
                         <p className="text-xl md:text-2xl text-slate-600 font-light max-w-3xl leading-relaxed">
                             A premium lifestyle brand website concept designed to create emotional connection and elevate perceived value through digital storytelling.
                         </p>
-                    </m.div>
+                    </div>
                 </div>
             </section>
 
             {/* Visual Showcase */}
             <section className="px-6 pb-20">
-                <m.div
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="max-w-7xl mx-auto h-[60vh] md:h-[80vh] rounded-[3rem] overflow-hidden relative shadow-2xl"
+                <div
+                    className="max-w-7xl mx-auto h-[60vh] md:h-[80vh] rounded-[3rem] overflow-hidden relative shadow-2xl animate-fade-in-up"
+                    style={{ animationDelay: '0.2s' }}
                 >
                     <div className="absolute inset-0 bg-gradient-to-br from-rose-400 to-pink-600"></div>
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -69,7 +62,7 @@ export function AuraLifestyle() {
                             LIFESTYLE
                         </span>
                     </div>
-                </m.div>
+                </div>
             </section>
 
             {/* Concept Details - Grid Layout */}

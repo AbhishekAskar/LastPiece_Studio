@@ -1,8 +1,6 @@
 import { Puzzle, Twitter, Linkedin, Dribbble, Instagram } from "lucide-react"
 import { Link } from "react-router-dom"
 import { Button } from "../ui/Button"
-import { m } from "framer-motion"
-import { VARIANTS_BUTTON } from "@/lib/animations"
 
 export function Footer() {
     const links = {
@@ -45,15 +43,14 @@ export function Footer() {
                         </p>
                         <div className="flex gap-4">
                             {links.socials.map((social, i) => (
-                                <m.a
+                                <a
                                     key={i}
                                     href={social.href}
-                                    whileHover={{ y: -4, backgroundColor: "#8B5CF6", color: "#fff" }}
-                                    className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-slate-400 transition-colors"
+                                    className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-slate-400 transition-colors hover:bg-brand-purple hover:text-white hover:-translate-y-1"
                                     aria-label={social.label}
                                 >
                                     <social.icon size={18} />
-                                </m.a>
+                                </a>
                             ))}
                         </div>
                     </div>
@@ -93,11 +90,11 @@ export function Footer() {
                             Let&apos;s build your first meaningful digital experience.
                         </p>
                         <Link to="/contact">
-                            <m.div variants={VARIANTS_BUTTON} initial="initial" whileHover="hover" whileTap="tap">
+                            <div>
                                 <Button className="w-full bg-white text-slate-900 hover:bg-brand-purple hover:text-white border-0 pointer-events-none">
                                     Book Strategy Call
                                 </Button>
-                            </m.div>
+                            </div>
                         </Link>
                     </div>
                 </div>

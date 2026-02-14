@@ -1,20 +1,15 @@
-import { m } from "framer-motion"
 import { ArrowRight, Users, Eye, Zap, Layout } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { Link } from "react-router-dom"
 import { MotionWrapper } from "@/components/ui/MotionWrapper"
-import { VARIANTS_HERO, VARIANTS_CONTAINER, VARIANTS_CARD } from "@/lib/animations"
 
 export function Approach() {
     return (
         <>
             {/* Hero Section */}
             <section className="relative flex items-start justify-center overflow-hidden gradient-mesh px-6 pt-36 pb-12 md:pt-48 md:pb-20 min-h-[70vh]">
-                <m.div
-                    variants={VARIANTS_HERO}
-                    initial="hidden"
-                    animate="visible"
-                    className="max-w-5xl text-center mx-auto relative z-10 will-change-transform"
+                <div
+                    className="max-w-5xl text-center mx-auto relative z-10 will-change-transform animate-fade-in"
                 >
                     <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 leading-tight">
                         Every great website starts with <span className="text-brand-purple">understanding.</span>
@@ -24,7 +19,7 @@ export function Approach() {
                         <br className="hidden md:block" />
                         that feel natural, meaningful, and aligned with their goals.
                     </p>
-                </m.div>
+                </div>
 
                 {/* Background Blobs */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-pastel-blue/40 rounded-full blur-[120px] -z-10 mix-blend-multiply opacity-60 will-change-transform" />
@@ -85,11 +80,7 @@ export function Approach() {
                             <div className="h-1 w-20 bg-brand-purple/50 rounded-full mx-auto"></div>
                         </MotionWrapper>
 
-                        <m.div
-                            variants={VARIANTS_CONTAINER}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-50px" }}
+                        <div
                             className="grid grid-cols-1 md:grid-cols-2 gap-8"
                         >
                             {[
@@ -98,17 +89,15 @@ export function Approach() {
                                 { title: "Post-Launch", desc: "We don't disappear. We offer training sessions and retainer options to keep your site growing." },
                                 { title: "Pricing", desc: "Project-based or retainer. No hidden hourly billing surprises. You know exactly what you get." }
                             ].map((item, index) => (
-                                <m.div
+                                <div
                                     key={index}
-                                    variants={VARIANTS_CARD}
-                                    whileHover="hover"
-                                    className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-md"
+                                    className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 transition-all duration-300 hover:shadow-md hover:-translate-y-1"
                                 >
                                     <h3 className="font-bold text-lg text-slate-900 mb-3">{item.title}</h3>
                                     <p className="text-slate-600 leading-relaxed">{item.desc}</p>
-                                </m.div>
+                                </div>
                             ))}
-                        </m.div>
+                        </div>
                     </div>
                 </section>
 
@@ -121,11 +110,7 @@ export function Approach() {
                         </MotionWrapper>
                     </div>
 
-                    <m.div
-                        variants={VARIANTS_CONTAINER}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-50px" }}
+                    <div
                         className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
                     >
                         {[
@@ -154,11 +139,9 @@ export function Approach() {
                                 color: "bg-emerald-50 border-emerald-100 text-emerald-600"
                             }
                         ].map((item, index) => (
-                            <m.div
+                            <div
                                 key={index}
-                                variants={VARIANTS_CARD}
-                                whileHover="hover"
-                                className={`p-6 rounded-2xl border ${item.color.split(' ')[1]} ${item.color.split(' ')[0]} transition-all duration-300 hover:shadow-md h-full`}
+                                className={`p-6 rounded-2xl border ${item.color.split(' ')[1]} ${item.color.split(' ')[0]} transition-all duration-300 hover:shadow-md h-full hover:-translate-y-1`}
                             >
                                 <div className="flex items-start gap-4 mb-3">
                                     <div className={`w-10 h-10 rounded-lg bg-white shrink-0 flex items-center justify-center shadow-sm border border-black/5 ${item.color.split(' ')[2]}`}>
@@ -167,9 +150,9 @@ export function Approach() {
                                     <h3 className="font-bold text-xl text-slate-900 pt-1.5">{item.title}</h3>
                                 </div>
                                 <p className="text-slate-600 leading-relaxed text-base pl-14">{item.desc}</p>
-                            </m.div>
+                            </div>
                         ))}
-                    </m.div>
+                    </div>
                 </section>
 
                 {/* CTA */}
