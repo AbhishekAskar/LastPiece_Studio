@@ -210,32 +210,10 @@
   }
 }
 
-/* Lenis Smooth Scroll */
+/* Lenis Smooth Scroll Removed */
 html {
+  scroll-behavior: smooth;
   scroll-padding-top: 100px;
-}
-
-html.lenis,
-html.lenis body {
-  height: auto;
-  scroll-padding-top: 100px;
-  /* Fix for navbar overlap */
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
 }
 
 .gradient-mesh {

@@ -1,25 +1,16 @@
-import { m, useScroll, useTransform } from "framer-motion"
-import { useRef } from "react"
+import { m } from "framer-motion"
 
 export function Philosophy() {
-    const containerRef = useRef<HTMLElement>(null)
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    })
-
-    const yBg = useTransform(scrollYProgress, [0, 1], [0, -100])
 
     return (
-        <section ref={containerRef} className="py-32 bg-slate-900 relative overflow-hidden">
-            {/* Background Parallax */}
-            <m.div
-                style={{ y: yBg }}
+        <section className="py-32 bg-slate-900 relative overflow-hidden">
+            {/* Background Parallax - Static for performance */}
+            <div
                 className="absolute inset-0 opacity-20"
             >
                 <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-purple rounded-full blur-[120px]"></div>
                 <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-600 rounded-full blur-[150px]"></div>
-            </m.div>
+            </div>
 
             <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
                 <m.div
@@ -73,7 +64,7 @@ export function Philosophy() {
                     In a world of digital noise, clarity is the ultimate differentiator. We build products that respect your users' time and intelligence.
                 </m.p>
             </div>
-            <m.div style={{ y: yBg }} className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px]" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px]" />
         </section>
     )
 }

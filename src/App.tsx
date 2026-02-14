@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react"
-import Lenis from "lenis"
+// import Lenis from "lenis"
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
 import { LazyMotion, domAnimation } from "framer-motion"
 import { Navbar } from "@/components/layout/Navbar"
@@ -39,28 +39,7 @@ const PageLoader = () => (
 );
 
 function App() {
-  React.useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      touchMultiplier: 2,
-      infinite: false, // Ensure no infinite scroll loops
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
+  // Removed Lenis for native scrolling support
 
   return (
     <Router>
