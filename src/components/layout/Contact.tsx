@@ -73,7 +73,7 @@ export function Contact() {
     }
 
     return (
-        <section id="contact" className="section-padding px-4 md:px-6 bg-[#fff9f2] relative overflow-hidden">
+        <section id="contact" className="pt-32 pb-16 md:pt-48 md:pb-24 px-4 md:px-6 bg-[#fff9f2] relative overflow-hidden">
             <div className="mx-auto max-w-xl relative z-10">
                 <div
                     className="text-center mb-8 md:mb-12 relative animate-fade-in"

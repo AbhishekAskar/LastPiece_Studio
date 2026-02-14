@@ -55,7 +55,7 @@ export function Services() {
             {/* Hero Section */}
             <section className="relative flex items-center justify-center overflow-hidden gradient-mesh px-4 md:px-6 pt-32 pb-16 md:pt-48 md:pb-24 min-h-[60vh] md:min-h-[70vh]">
                 <div
-                    className="max-w-5xl text-center mx-auto relative z-10 will-change-transform animate-fade-in"
+                    className="max-w-5xl text-center mx-auto relative z-10 animate-fade-in"
                 >
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-6 md:mb-8 leading-[1.1]">
                         Services designed for <span className="text-brand-purple">impact.</span>
@@ -66,8 +66,8 @@ export function Services() {
                 </div>
 
                 {/* Background Blobs */}
-                <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-blue/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60 will-change-transform" />
-                <div className="absolute bottom-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-purple/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60 will-change-transform" />
+                <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-blue/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60" />
+                <div className="absolute bottom-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-purple/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60" />
             </section>
 
             <div className="pb-16">

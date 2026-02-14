@@ -56,7 +56,7 @@ function App() {
             <Route path="/work/venture-flow" element={<VentureFlow />} />
             <Route path="/work/aura-lifestyle" element={<AuraLifestyle />} />
             <Route path="/studio" element={<Studio />} />
-            <Route path="/contact" element={<div className="pt-24"><Contact /></div>} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </Suspense>
         <Footer />

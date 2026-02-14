@@ -9,7 +9,7 @@ export function Approach() {
             {/* Hero Section */}
             <section className="relative flex items-start justify-center overflow-hidden gradient-mesh px-6 pt-36 pb-12 md:pt-48 md:pb-20 min-h-[70vh]">
                 <div
-                    className="max-w-5xl text-center mx-auto relative z-10 will-change-transform animate-fade-in"
+                    className="max-w-5xl text-center mx-auto relative z-10 animate-fade-in"
                 >
                     <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 leading-tight">
                         Every great website starts with <span className="text-brand-purple">understanding.</span>
@@ -22,8 +22,8 @@ export function Approach() {
                 </div>
 
                 {/* Background Blobs */}
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-pastel-blue/40 rounded-full blur-[120px] -z-10 mix-blend-multiply opacity-60 will-change-transform" />
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-pastel-purple/40 rounded-full blur-[120px] -z-10 mix-blend-multiply opacity-60 will-change-transform" />
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-pastel-blue/40 rounded-full blur-[120px] -z-10 mix-blend-multiply opacity-60" />
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-pastel-purple/40 rounded-full blur-[120px] -z-10 mix-blend-multiply opacity-60" />
             </section>
 
             <div className="pb-16">

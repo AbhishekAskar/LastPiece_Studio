@@ -45,20 +45,21 @@ export function Work() {
             {/* Hero Section */}
             <section className="relative flex items-center justify-center overflow-hidden gradient-mesh px-4 md:px-6 pt-32 pb-16 md:pt-48 md:pb-20 min-h-[60vh] md:min-h-[70vh]">
                 <div
-                    className="max-w-5xl text-center mx-auto relative z-10 will-change-transform animate-fade-in"
+                    className="max-w-5xl text-center mx-auto relative z-10 animate-fade-in"
                 >
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 mb-6 md:mb-8 leading-tight">
-                        Explorations in <span className="text-brand-purple">digital clarity.</span>
+                        Our work isn't just <span className="text-brand-purple">visual.</span>
                     </h1>
-                    <p className="text-lg md:text-2xl text-slate-600 leading-relaxed font-light max-w-4xl mx-auto px-2">
-                        A collection of self-initiated concepts that demonstrate our approach to product design, branding, and user experience.
+                    <p className="text-lg md:text-2xl text-slate-600 leading-relaxed font-medium max-w-3xl mx-auto px-2">
+                        It's strategic. It's built to perform. And it's designed to last.
                     </p>
                 </div>
 
                 {/* Background Blobs */}
-                <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-blue/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60 will-change-transform" />
-                <div className="absolute bottom-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-purple/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60 will-change-transform" />
+                <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-blue/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60" />
+                <div className="absolute bottom-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-pastel-purple/40 rounded-full blur-[80px] md:blur-[120px] -z-10 mix-blend-multiply opacity-60" />
             </section>
+
 
             <div className="pb-16">
                 {/* Project Grid */}

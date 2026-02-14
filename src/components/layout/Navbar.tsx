@@ -44,7 +44,7 @@ export function Navbar() {
                 className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 md:pt-6"
             >
                 <div
-                    className="w-full max-w-7xl flex items-center justify-between px-4 md:px-8 border border-slate-100 shadow-sm rounded-full bg-white py-3 h-16 md:h-[72px]"
+                    className="w-full max-w-7xl flex items-center justify-between px-4 md:px-8 border border-slate-100 shadow-sm rounded-full bg-white/80 backdrop-blur-md py-3 h-16 md:h-[72px]"
                 >
                     {/* Logo */}
                     <Link
