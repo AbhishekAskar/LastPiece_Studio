@@ -20,6 +20,7 @@ export default defineConfig({
   },
   build: {
     sourcemap: false,
+    minify: 'esbuild', // Explicitly use esbuild for faster and smaller builds
     rollupOptions: {
       output: {
         manualChunks: {

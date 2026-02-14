@@ -47,8 +47,8 @@ export function Navbar() {
             >
                 <div
                     className={cn(
-                        "w-full max-w-7xl flex items-center justify-between px-4 md:px-8 transition-all duration-300",
-                        "bg-white/80 backdrop-blur-md border border-white/20 ring-1 ring-black/5 shadow-sm rounded-full",
+                        "w-full max-w-7xl flex items-center justify-between px-4 md:px-8 transition-all duration-300 transform-gpu",
+                        "bg-white/90 backdrop-blur-sm border border-white/20 ring-1 ring-black/5 shadow-sm rounded-full",
                         scrolled ? "h-14 md:h-16" : "h-16 md:h-[72px]"
                     )}
                 >

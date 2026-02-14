@@ -25,6 +25,7 @@ export function MotionWrapper({
             variants={VARIANTS_SECTION}
             transition={{ delay }} // Apply delay to the transition
             className={cn("will-change-transform", className)} // Optimize for GPU
+            layout={false} // Prevent layout thrashing
             {...props}
         >
             {children}

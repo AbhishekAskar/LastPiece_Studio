@@ -8,10 +8,11 @@ export function Philosophy() {
 
             <div className="max-w-4xl mx-auto text-center relative z-10">
                 <m.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.6 }}
+                    layout={false}
                 >
                     <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 leading-tight">
                         Design that <br /> <span className="text-brand-purple">means business.</span>

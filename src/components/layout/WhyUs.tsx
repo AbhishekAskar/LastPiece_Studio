@@ -66,7 +66,12 @@ export function WhyUs() {
                         >
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-12 h-12 bg-slate-100 rounded-full overflow-hidden">
-                                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=0D8ABC&color=fff" alt="Client" />
+                                    <img
+                                        src="https://ui-avatars.com/api/?name=John+Doe&background=0D8ABC&color=fff"
+                                        alt="Client"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-slate-900">Michael Roberts</h4>

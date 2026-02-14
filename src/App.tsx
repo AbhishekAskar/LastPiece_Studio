@@ -6,17 +6,17 @@ import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 
 // Lazy load pages for performance
-const Home = lazy(() => import("@/pages/Home").then(module => ({ default: module.Home })))
-const Approach = lazy(() => import("@/pages/Approach").then(module => ({ default: module.Approach })))
-const Services = lazy(() => import("@/pages/Services").then(module => ({ default: module.Services })))
-const Work = lazy(() => import("@/pages/Work").then(module => ({ default: module.Work })))
-const Studio = lazy(() => import("@/pages/Studio").then(module => ({ default: module.Studio })))
-const Contact = lazy(() => import("@/components/layout/Contact").then(module => ({ default: module.Contact })))
+const Home = lazy(() => import("@/pages/Home").then(module => ({ default: module.Home })));
+const Approach = lazy(() => import("@/pages/Approach").then(module => ({ default: module.Approach })));
+const Services = lazy(() => import("@/pages/Services").then(module => ({ default: module.Services })));
+const Work = lazy(() => import("@/pages/Work").then(module => ({ default: module.Work })));
+const Studio = lazy(() => import("@/pages/Studio").then(module => ({ default: module.Studio })));
+const Contact = lazy(() => import("@/components/layout/Contact").then(module => ({ default: module.Contact })));
 
 // Lazy load case studies
-const NexusSaaS = lazy(() => import("@/pages/case-studies/NexusSaaS").then(module => ({ default: module.NexusSaaS })))
-const VentureFlow = lazy(() => import("@/pages/case-studies/VentureFlow").then(module => ({ default: module.VentureFlow })))
-const AuraLifestyle = lazy(() => import("@/pages/case-studies/AuraLifestyle").then(module => ({ default: module.AuraLifestyle })))
+const NexusSaaS = lazy(() => import("@/pages/case-studies/NexusSaaS").then(module => ({ default: module.NexusSaaS })));
+const VentureFlow = lazy(() => import("@/pages/case-studies/VentureFlow").then(module => ({ default: module.VentureFlow })));
+const AuraLifestyle = lazy(() => import("@/pages/case-studies/AuraLifestyle").then(module => ({ default: module.AuraLifestyle })));
 
 // Scroll to top on route change
 function ScrollToTop() {

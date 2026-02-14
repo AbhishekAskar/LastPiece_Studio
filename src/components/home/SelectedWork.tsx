@@ -92,16 +92,17 @@ export function SelectedWork() {
                     {projects.map((project, index) => (
                         <Link to={project.link} key={index} className="group block">
                             <m.div
-                                initial={{ opacity: 0, y: 40 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1.0] } }}
+                                whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                transition={{ duration: 0.5, delay: index * 0.05 }}
                                 className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center transform-gpu"
+                                layout={false}
                             >
                                 {/* Visual Side */}
-                                <div className="h-72 md:h-[450px] w-full relative overflow-hidden rounded-[2.5rem] group shadow-sm hover:shadow-2xl transition-all duration-500">
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} group-hover:scale-105 transition-transform duration-700 ease-out`} />
+                                <div className="h-72 md:h-[450px] w-full relative overflow-hidden rounded-[2.5rem] group shadow-sm hover:shadow-xl transition-all duration-300">
+                                    <div className={`absolute inset-0 bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} group-hover:scale-102 transition-transform duration-500 ease-out`} />
 
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <span className="text-white/20 text-3xl md:text-4xl font-black tracking-[0.2em] uppercase group-hover:text-white/30 transition-colors duration-500 transform group-hover:-translate-y-2">

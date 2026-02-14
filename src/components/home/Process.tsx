@@ -27,12 +27,13 @@ export function Process() {
 
                 <div className="relative max-w-6xl mx-auto">
                     {/* Connecting Line (Desktop) */}
+                    {/* Connecting Line (Desktop) - Optimized to opacity fade instead of scaleX to prevent layout thrashing */}
                     <m.div
-                        initial={{ scaleX: 0 }}
-                        whileInView={{ scaleX: 1 }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 1, ease: "easeInOut" }}
-                        className="absolute top-8 left-0 w-full h-0.5 bg-slate-200 -z-10 hidden md:block origin-left will-change-transform"
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="absolute top-8 left-0 w-full h-0.5 bg-slate-200 -z-10 hidden md:block"
                     />
 
                     <m.div
@@ -41,12 +42,14 @@ export function Process() {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-50px" }}
                         className="grid grid-cols-1 md:grid-cols-5 gap-8"
+                        layout={false}
                     >
                         {steps.map((step, index) => (
                             <m.div
                                 key={index}
                                 variants={VARIANTS_SECTION}
                                 className="flex flex-col items-center text-center group relative bg-slate-50 md:bg-transparent p-4 md:p-0 rounded-2xl"
+                                layout={false}
                             >
                                 <div className="w-16 h-16 rounded-full bg-white border-4 border-slate-50 md:border-slate-50 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-brand-purple transition-all duration-300 z-10">
                                     <span className="text-xl font-black text-brand-purple">
