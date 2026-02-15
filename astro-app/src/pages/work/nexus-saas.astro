@@ -1,0 +1,14 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Navbar } from "@/components/layout/Navbar";
+import { NexusSaaS as NexusSaaSTemplate } from "@/components/templates/case-studies/NexusSaaS";
+import { Footer } from "@/components/layout/Footer";
+---
+
+<Layout title="Nexus SaaS | LastPiece Studio">
+  <Navbar client:load pathname="/work" />
+  <main>
+    <NexusSaaSTemplate client:load />
+  </main>
+  <Footer />
+</Layout>

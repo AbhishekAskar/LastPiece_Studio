@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Navbar } from "@/components/layout/Navbar";
+import { Contact as ContactComponent } from "@/components/layout/Contact";
+import { Footer } from "@/components/layout/Footer";
+---
+
+<Layout title="Contact | LastPiece Studio">
+  <Navbar client:load pathname="/contact" />
+  <main class="pt-24">
+    <ContactComponent client:visible />
+  </main>
+  <Footer />
+</Layout>
