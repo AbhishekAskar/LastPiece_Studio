@@ -18,13 +18,13 @@ import { Footer } from "@/components/layout/Footer";
   <Navbar client:load pathname="/" />
   <main>
     <Hero />
-    <WhoWeHelp />
-    <ProblemSolution />
+    <WhoWeHelp client:visible />
+    <ProblemSolution client:visible />
     <Capabilities />
     <SelectedWork />
-    <Process />
-    <WhyLastPiece />
-    <FounderCredibility />
+    <Process client:visible />
+    <WhyLastPiece client:visible />
+    <FounderCredibility client:visible />
     <FAQ client:visible />
     <Contact client:visible />
   </main>
