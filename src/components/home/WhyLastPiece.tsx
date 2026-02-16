@@ -64,11 +64,7 @@ export function WhyLastPiece() {
                     >
                         <div className="bg-gradient-to-br from-pastel-purple/20 via-pastel-blue/20 to-pastel-pink/20 p-12 rounded-3xl border border-white/50 shadow-lg">
                             <div className="bg-white/60 backdrop-blur-sm p-8 rounded-2xl">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="w-3 h-3 rounded-full bg-brand-purple"></div>
-                                    <div className="w-3 h-3 rounded-full bg-pastel-blue"></div>
-                                    <div className="w-3 h-3 rounded-full bg-pastel-pink"></div>
-                                </div>
+
                                 <p className="text-lg text-slate-700 leading-relaxed italic mb-6">
                                     "We don't just hand off code and disappear. We are creative partners invested in your long-term growth and verified outcomes."
                                 </p>

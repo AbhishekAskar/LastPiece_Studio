@@ -15,7 +15,7 @@ export function Process() {
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                     <MotionWrapper className="max-w-2xl">
                         <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">
-                            How we work
+                            How we work?
                         </h2>
                         <p className="text-lg text-slate-600 max-w-xl">
                             A streamlined path from chaos to clarity.

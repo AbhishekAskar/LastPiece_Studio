@@ -24,10 +24,12 @@ export function FAQ() {
     ]
 
     return (
-        <section className="py-16 md:py-24 px-6 bg-white">
+
+
+        <section className="py-20 px-6 bg-white border-b border-slate-100">
             <div className="max-w-3xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight">
                         Common Questions
                     </h2>
                 </div>
@@ -53,7 +55,7 @@ export function FAQ() {
                         return (
                             <div
                                 key={index}
-                                className={`border rounded-2xl overflow-hidden transition-all duration-300 ${isOpen ? colorClass : 'border-slate-200 hover:border-slate-300 bg-white'}`}
+                                className={`border rounded-xl overflow-hidden transition-all duration-300 ${isOpen ? colorClass : 'border-slate-200 hover:border-slate-300 bg-white'}`}
                             >
                                 <button
                                     onClick={() => setOpenIndex(isOpen ? null : index)}

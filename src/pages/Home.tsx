@@ -16,8 +16,8 @@ export function Home() {
             <WhoWeHelp />
             <ProblemSolution />
             <Capabilities />
-            <SelectedWork />
             <Process />
+            <SelectedWork />
             <WhyLastPiece />
             <FounderCredibility />
             <FAQ />

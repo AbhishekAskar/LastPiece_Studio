@@ -5,10 +5,10 @@ import { Button } from "../ui/Button"
 export function Footer() {
     const links = {
         services: [
-            { label: "Launch Package", href: "/services" },
-            { label: "Redesign Sprint", href: "/services" },
-            { label: "Product Design", href: "/services" },
-            { label: "Growth & CRO", href: "/services" }
+            { label: "The Launch Package", href: "/services#launch-package" },
+            { label: "The Redesign Sprint", href: "/services#redesign-sprint" },
+            { label: "Website Design & Dev", href: "/services#website-design-dev" },
+            { label: "UI Enhancement", href: "/services#ui-enhancement" }
         ],
         company: [
             { label: "Approach", href: "/approach" },
@@ -57,7 +57,9 @@ export function Footer() {
 
                     {/* Links Columns */}
                     <div className="lg:col-span-2 sm:col-span-6">
-                        <h3 className="text-white font-bold mb-6">Services</h3>
+                        <Link to="/services" className="block w-fit">
+                            <h3 className="text-white font-bold mb-6 hover:text-brand-purple transition-colors">Services</h3>
+                        </Link>
                         <ul className="space-y-4">
                             {links.services.map((link, i) => (
                                 <li key={i}>

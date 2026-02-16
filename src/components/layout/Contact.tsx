@@ -1,5 +1,5 @@
 
-import { Send, Image as ImageIcon, CheckCircle2, AlertCircle } from "lucide-react"
+import { Send, CheckCircle2, AlertCircle } from "lucide-react"
 import { useState } from "react"
 
 export function Contact() {
@@ -73,36 +73,34 @@ export function Contact() {
     }
 
     return (
-        <section id="contact" className="pt-32 pb-16 md:pt-48 md:pb-24 px-4 md:px-6 bg-[#fff9f2] relative overflow-hidden">
-            <div className="mx-auto max-w-xl relative z-10">
+
+
+        <section id="contact" className="pt-16 pb-20 md:pt-24 md:pb-32 px-4 md:px-6 bg-[#fff9f2] relative overflow-hidden">
+            <div className="mx-auto max-w-5xl relative z-10">
                 <div
-                    className="text-center mb-8 md:mb-12 relative animate-fade-in"
+                    className="text-center mb-10 relative animate-fade-in"
                 >
                     <span className="text-brand-purple text-xs font-black uppercase tracking-[0.3em] mb-3 block">
                         Inquiry
                     </span>
-                    <h2 className="font-black text-slate-900 mb-4 text-2xl md:text-4xl max-w-lg mx-auto leading-tight">
-                        Let&apos;s build your first meaningful digital experience.
+                    <h2 className="font-black text-slate-900 mb-2 text-3xl md:text-4xl max-w-lg mx-auto leading-tight">
+                        Let's build something great.
                     </h2>
-
-                    {/* Decorative rotated image placeholder */}
-                    <div className="absolute -top-10 -right-20 opacity-10 hidden sm:block">
-                        <ImageIcon className="w-24 h-24 transform rotate-12 text-slate-400 drop-shadow-2xl" />
-                    </div>
                 </div>
 
                 <div
-                    className="bg-white rounded-3xl shadow-xl border border-white/50 p-6 md:p-10 relative animate-fade-in-up"
+                    className="bg-white rounded-3xl shadow-xl border border-white/50 p-8 md:p-10 relative animate-fade-in-up"
                 >
                     <form className="space-y-6 md:space-y-8" onSubmit={handleSubmit}>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                        {/* Top Row: Name, Email, Phone */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                             <div className="space-y-2">
-                                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">
-                                    Full Name
+                                <label className="text-xs font-black uppercase tracking-widest text-slate-400 ml-1">
+                                    Name
                                 </label>
                                 <input
                                     type="text"
-                                    placeholder="Sarah Miller"
+                                    placeholder="Aditya Sharma"
                                     required
                                     value={formData.name}
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -110,51 +108,37 @@ export function Contact() {
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">
-                                    Email Address
+                                <label className="text-xs font-black uppercase tracking-widest text-slate-400 ml-1">
+                                    Email
                                 </label>
                                 <input
                                     type="email"
-                                    placeholder="sarah@company.com"
+                                    placeholder="aditya@company.com"
                                     required
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                     className="w-full bg-slate-50 border border-slate-100 rounded-xl h-12 md:h-14 px-4 text-base focus:ring-2 focus:ring-brand-purple/20 focus:bg-white focus:border-brand-purple/20 transition-all text-slate-900 placeholder-slate-300 outline-none shadow-sm"
                                 />
                             </div>
-                        </div>
-
-                        <div className="space-y-2">
-                            <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">
-                                Phone Number
-                            </label>
-                            <input
-                                type="tel"
-                                placeholder="+91 98765 43210"
-                                pattern="[\d\s\+\-]+"
-                                value={formData.phone}
-                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                className="w-full bg-slate-50 border border-slate-100 rounded-xl h-12 md:h-14 px-4 text-base focus:ring-2 focus:ring-brand-purple/20 focus:bg-white focus:border-brand-purple/20 transition-all text-slate-900 placeholder-slate-300 outline-none shadow-sm"
-                            />
-                        </div>
-
-                        <div className="space-y-2">
-                            <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">
-                                Project Description
-                            </label>
-                            <textarea
-                                rows={4}
-                                placeholder="Tell us about your vision..."
-                                required
-                                value={formData.description}
-                                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                                className="w-full bg-slate-50 border border-slate-100 rounded-xl p-4 text-base focus:ring-2 focus:ring-brand-purple/20 focus:bg-white focus:border-brand-purple/20 transition-all text-slate-900 placeholder-slate-300 outline-none resize-y min-h-[120px] shadow-sm"
-                            ></textarea>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
                             <div className="space-y-2">
-                                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">
+                                <label className="text-xs font-black uppercase tracking-widest text-slate-400 ml-1">
+                                    Phone
+                                </label>
+                                <input
+                                    type="tel"
+                                    placeholder="+91 98765 43210"
+                                    pattern="[\d\s\+\-]+"
+                                    value={formData.phone}
+                                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                    className="w-full bg-slate-50 border border-slate-100 rounded-xl h-12 md:h-14 px-4 text-base focus:ring-2 focus:ring-brand-purple/20 focus:bg-white focus:border-brand-purple/20 transition-all text-slate-900 placeholder-slate-300 outline-none shadow-sm"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Middle Row: Timeline, Budget */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                            <div className="space-y-2">
+                                <label className="text-xs font-black uppercase tracking-widest text-slate-400 ml-1">
                                     Timeline
                                 </label>
                                 <div className="relative">
@@ -175,8 +159,8 @@ export function Contact() {
                                 </div>
                             </div>
                             <div className="space-y-2">
-                                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">
-                                    Budget Range
+                                <label className="text-xs font-black uppercase tracking-widest text-slate-400 ml-1">
+                                    Budget
                                 </label>
                                 <div className="relative">
                                     <select
@@ -197,6 +181,21 @@ export function Contact() {
                             </div>
                         </div>
 
+                        {/* Bottom Row: Description */}
+                        <div className="space-y-2">
+                            <label className="text-xs font-black uppercase tracking-widest text-slate-400 ml-1">
+                                Description
+                            </label>
+                            <textarea
+                                rows={3}
+                                placeholder="Tell us about your vision..."
+                                required
+                                value={formData.description}
+                                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                                className="w-full bg-slate-50 border border-slate-100 rounded-xl p-4 text-base focus:ring-2 focus:ring-brand-purple/20 focus:bg-white focus:border-brand-purple/20 transition-all text-slate-900 placeholder-slate-300 outline-none resize-y min-h-[100px] shadow-sm"
+                            ></textarea>
+                        </div>
+
                         {/* Success Message */}
                         {submitStatus === "success" && (
                             <div
@@ -204,7 +203,7 @@ export function Contact() {
                             >
                                 <CheckCircle2 className="text-emerald-600 shrink-0" size={20} />
                                 <p className="text-emerald-800 text-sm font-medium">
-                                    Thank you! Your inquiry has been sent successfully. We'll get back to you soon.
+                                    Inquiry sent successfully!
                                 </p>
                             </div>
                         )}
@@ -216,7 +215,7 @@ export function Contact() {
                             >
                                 <AlertCircle className="text-red-600 shrink-0" size={20} />
                                 <p className="text-red-800 text-sm font-medium">
-                                    Oops! Something went wrong. Please check your information and try again.
+                                    Something went wrong. Please try again.
                                 </p>
                             </div>
                         )}
@@ -238,11 +237,10 @@ export function Contact() {
                             )}
                         </button>
                         <p className="text-center text-slate-400 text-xs mt-6 font-medium">
-                            Prefer direct email?{" "}
+                            Prefer email?{" "}
                             <a
                                 href="mailto:lastpiecestudio26@gmail.com"
-                                aria-label="Email LastPiece Studio"
-                                className="text-brand-purple font-bold underline decoration-brand-purple/20 underline-offset-4 hover:decoration-brand-purple transition-all"
+                                className="text-brand-purple font-bold hover:underline"
                             >
                                 lastpiecestudio26@gmail.com
                             </a>

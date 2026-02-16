@@ -1,155 +1,73 @@
-import { Link } from "react-router-dom"
-import { ArrowRight, Brain, Eye, Zap, Users } from "lucide-react"
+import { Brain, Eye, Zap, Users } from "lucide-react"
 
 
 export function SelectedWork() {
-    const projects = [
-        {
-            title: "Enterprise Analytics Platform",
-            bgTitle: "ANALYTICS",
-            label: "Concept Project",
-            desc: "A clarity-focused dashboard optimizing complex data visualization.",
-            gradientFrom: "from-indigo-500",
-            gradientTo: "to-purple-600",
-            link: "/work/nexus-saas"
-        },
-        {
-            title: "Financial Tech Website",
-            bgTitle: "FINTECH",
-            label: "Concept Project",
-            desc: "Building trust and conversion for a modern fintech startup.",
-            gradientFrom: "from-emerald-400",
-            gradientTo: "to-teal-500",
-            link: "/work/venture-flow"
-        },
-        {
-            title: "Fashion & Lifestyle Store",
-            bgTitle: "LIFESTYLE",
-            label: "Concept Project",
-            desc: "Elevating brand perception through immersive digital storytelling.",
-            gradientFrom: "from-rose-400",
-            gradientTo: "to-pink-500",
-            link: "/work/aura-lifestyle"
-        }
-    ]
-
     const approaches = [
         {
             icon: Brain,
             title: "Clarity-First Thinking",
             desc: "We prioritize understanding the 'why' before designing the 'what'.",
-            color: "bg-purple-50/80 border-purple-100"
+            color: "bg-purple-100"
         },
         {
             icon: Eye,
             title: "Conversion Awareness",
             desc: "Every design decision is made with your business goals in mind.",
-            color: "bg-blue-50/80 border-blue-100"
+            color: "bg-blue-100"
         },
         {
             icon: Zap,
             title: "Performance & Accessibility",
             desc: "Fast, inclusive experiences that rank better and serve everyone.",
-            color: "bg-emerald-50/80 border-emerald-100"
+            color: "bg-emerald-100"
         },
         {
             icon: Users,
             title: "Collaborative Process",
             desc: "We build with you, not just for you. Transparency at every step.",
-            color: "bg-orange-50/80 border-orange-100"
+            color: "bg-orange-100"
         }
     ]
 
     return (
         <section className="section-padding px-6 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-                    <div
-                        className="max-w-3xl animate-fade-in"
-                    >
-                        <span className="text-brand-purple font-bold tracking-widest uppercase text-xs mb-4 block">
-                            Our Work
-                        </span>
-                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
-                            Concept Projects
-                        </h2>
-                        <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed max-w-2xl">
-                            Explorations that show how we think, design, and solve digital problems.
-                        </p>
-                        <p className="mt-4 text-slate-500 text-lg max-w-3xl">
-                            These are self-initiated product and website directions created to demonstrate our approach to clarity, usability, and conversion-focused design.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-20 mb-32">
-                    {projects.map((project, index) => (
-                        <Link to={project.link} key={index} className="group block">
-                            <div
-                                className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center transform-gpu"
-                            >
-                                {/* Visual Side */}
-                                <div className="h-72 md:h-[450px] w-full relative overflow-hidden rounded-[2.5rem] group shadow-sm hover:shadow-xl transition-all duration-300">
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${project.gradientFrom} ${project.gradientTo} group-hover:scale-102 transition-transform duration-500 ease-out`} />
-
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <span className="text-white/20 text-3xl md:text-4xl font-black tracking-[0.2em] uppercase group-hover:text-white/30 transition-colors duration-500 transform group-hover:-translate-y-2">
-                                            {project.bgTitle}
-                                        </span>
-                                    </div>
-                                    <div className="absolute top-8 left-8 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20">
-                                        <span className="text-white font-bold text-xs tracking-wide uppercase">{project.label}</span>
-                                    </div>
-                                </div>
-
-                                {/* Content Side */}
-                                <div className="lg:pl-8">
-                                    <h3 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 group-hover:text-brand-purple transition-colors">
-                                        {project.title}
-                                    </h3>
-                                    <p className="text-xl text-slate-600 mb-10 leading-relaxed font-light">
-                                        {project.desc}
-                                    </p>
-
-                                    <div className="inline-flex items-center gap-3 text-brand-purple font-bold text-lg border-b-2 border-transparent group-hover:border-brand-purple transition-all pb-1">
-                                        View Concept <ArrowRight size={20} />
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
 
                 {/* How We Approach New Work - Credibility Section */}
                 <div className="bg-slate-50 rounded-[3rem] p-8 md:p-16 border border-slate-100">
-                    <div
-                        className="text-center mb-12"
-                    >
-                        <h3 className="text-3xl font-black text-slate-900 mb-4">How we approach new work</h3>
-                        <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-                            We bring the same level of strategic thinking and craftsmanship to every client partnership.
-                        </p>
-                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 items-start">
+                        {/* Left Side: Header */}
+                        <div className="lg:col-span-5">
+                            <span className="text-brand-purple font-bold tracking-widest uppercase text-xs mb-4 block">
+                                Our Methodology
+                            </span>
+                            <h3 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
+                                How we approach new work?
+                            </h3>
+                            <p className="text-slate-600 text-lg leading-relaxed">
+                                We bring the same level of strategic thinking and craftsmanship to every client partnership. It's not just about pixels; it's about solving real business problems through design.
+                            </p>
+                        </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {approaches.map((item, index) => (
-                            <div
-                                key={index}
-                                className={`${item.color} p-8 rounded-3xl shadow-sm border hover:shadow-md transition-all`}
-                            >
-                                <div>
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="w-12 h-12 bg-brand-purple/5 rounded-2xl flex items-center justify-center text-brand-purple shrink-0">
-                                            <item.icon size={24} />
+                        {/* Right Side: Grid */}
+                        <div className="lg:col-span-7">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                {approaches.map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all group"
+                                    >
+                                        <div className={`w-12 h-12 ${item.color.replace('border-', 'bg-').replace('/80', '')} rounded-xl flex items-center justify-center text-slate-700 mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                                            <item.icon size={22} className="text-slate-900" />
                                         </div>
-                                        <h4 className="font-bold text-slate-900 text-lg">{item.title}</h4>
+                                        <h4 className="font-bold text-slate-900 text-lg mb-2">{item.title}</h4>
+                                        <p className="text-slate-500 text-sm leading-relaxed">
+                                            {item.desc}
+                                        </p>
                                     </div>
-                                    <p className="text-slate-500 text-sm leading-relaxed">
-                                        {item.desc}
-                                    </p>
-                                </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -6,6 +6,7 @@ import { MotionWrapper } from "@/components/ui/MotionWrapper"
 export function Services() {
     const servicePillars = [
         {
+            id: "launch-package",
             icon: Sparkles,
             title: "The Launch Package",
             position: "For Startups (Seed - Series A)",
@@ -15,6 +16,7 @@ export function Services() {
             color: "bg-brand-purple/5 border-brand-purple/20"
         },
         {
+            id: "redesign-sprint",
             icon: RefreshCw,
             title: "The Redesign Sprint",
             position: "For Scale-Ups",
@@ -24,6 +26,7 @@ export function Services() {
             color: "bg-blue-50 border-blue-100"
         },
         {
+            id: "website-design-dev",
             icon: Boxes,
             title: "Website Design & Dev",
             position: "For Clarity & Performance",
@@ -33,6 +36,7 @@ export function Services() {
             color: "bg-emerald-50 border-emerald-100"
         },
         {
+            id: "ui-enhancement",
             icon: Gauge,
             title: "UI Enhancement",
             position: "For Interface Polish",
@@ -79,6 +83,7 @@ export function Services() {
                         {servicePillars.map((service, index) => (
                             <div
                                 key={index}
+                                id={service.id}
                                 className={`p-8 rounded-[2rem] border ${service.color} hover:shadow-xl transition-all duration-300 group bg-white transform-gpu hover:-translate-y-1`}
                             >
                                 <div className="h-full">

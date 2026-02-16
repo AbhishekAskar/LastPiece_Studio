@@ -24,7 +24,7 @@ export function Hero() {
                     className="font-black text-slate-900 mb-6 tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] md:leading-[1.1]"
                 >
                     Design that makes your brand <br className="hidden md:block" />
-                    feel <span className="text-brand-purple italic">complete</span> online.
+                    feel <span className="text-brand-purple inline-block -skew-x-6">complete</span> online.
                 </h1>
 
                 {/* Subheading */}

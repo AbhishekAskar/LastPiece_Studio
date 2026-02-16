@@ -19,12 +19,36 @@ const VentureFlow = lazy(() => import("@/pages/case-studies/VentureFlow").then(m
 const AuraLifestyle = lazy(() => import("@/pages/case-studies/AuraLifestyle").then(module => ({ default: module.AuraLifestyle })));
 
 // Scroll to top on route change
+// Scroll to top on route change
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (!hash) {
+      window.scrollTo(0, 0);
+    } else {
+      // Handle hash scrolling with a slight delay to allow for lazy loading/rendering
+      const scrollToHash = () => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+
+      // Try immediately
+      scrollToHash();
+
+      // Retry after short delays to ensure content is loaded
+      const timeout1 = setTimeout(scrollToHash, 100);
+      const timeout2 = setTimeout(scrollToHash, 500);
+
+      return () => {
+        clearTimeout(timeout1);
+        clearTimeout(timeout2);
+      };
+    }
+  }, [pathname, hash]);
 
   return null;
 }
