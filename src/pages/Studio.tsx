@@ -81,7 +81,7 @@ export function Studio() {
                             { icon: Target, title: "Intentionality", desc: "No filler. Everything has a purpose.", color: "bg-purple-50/60 border-purple-100" },
                             { icon: Eye, title: "Clarity", desc: "We remove noise to amplify the message.", color: "bg-blue-50/60 border-blue-100" },
                             { icon: Zap, title: "Performance", desc: "Fast, accessible, and conversion-ready.", color: "bg-amber-50/60 border-amber-100" },
-                            { icon: Users, title: "Human", desc: "Digital products for real people.", color: "bg-emerald-50/60 border-emerald-100" }
+                            { icon: Users, title: "Human Centric", desc: "Digital products for real people.", color: "bg-emerald-50/60 border-emerald-100" }
                         ].map((item, index) => (
                             <div
                                 key={index}
